@@ -1,17 +1,23 @@
 ---
-
+//@ts-nocheck
+import Layout from "../layouts/layout.astro";
+import Hero from "../components/Hero.astro";
+import Fordele from "../components/Fordele.astro";
+import BlivFrivilligCta from "../components/BlivFrivilligCta.astro";
+import Aktiviteter from "../components/Aktiviteter.astro";
+import Frivillige from "../components/Frivillige.astro";
+import Faq from "../components/Faq.astro";
+import Forms from "../components/Forms.astro";
+import "../styles/global.css";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <Hero />
+  <Fordele />
+  <BlivFrivilligCta />
+  <Aktiviteter />
+  <Frivillige />
+  <BlivFrivilligCta />
+  <Faq />
+  <Forms />
+</Layout>

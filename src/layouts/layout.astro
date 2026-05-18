@@ -1,0 +1,149 @@
+---
+//@ts-nocheck
+import { Image } from "astro:assets";
+import instagramIkon from "../assets/instagram_ikon.png";
+import facebookIkon from "../assets/facebook_ikon.png";
+import tiktokIkon from "../assets/tiktok_ikon.png";
+import rodekorsLogo from "../assets/rodekors_logo.png";
+import urkLogo from "../assets/urk_logo.png";
+import rkfLogo from "../assets/rkf_logo.png";
+import "../styles/global.css";
+---
+
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Røde Kors Frivillige</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main>
+      <slot />
+      <footer>
+        <div class="kontaktBox">
+          <article>
+            <h2>Røde Kors</h2>
+            <p>Blegdamsvej 27</p>
+            <p>2100 København Ø</p>
+          </article>
+
+          <article>
+            <div>
+              <h2>Åbningstider</h2>
+              <p>Man-tors: 8.30-16.00</p>
+              <p>Fredag: 8.30-15.00</p>
+              <p>Lørdag: Lukket</p>
+            </div>
+            <div class="ikonBox">
+              <Image
+                src={instagramIkon}
+                alt="Instagram ikon"
+                width={30}
+                height={30}
+              />
+              <Image
+                src={facebookIkon}
+                alt="Facebook ikon"
+                width={30}
+                height={30}
+              />
+              <Image
+                src={tiktokIkon}
+                alt="TikTok ikon"
+                width={30}
+                height={30}
+              />
+            </div>
+          </article>
+
+          <article>
+            <h2>Kontakt</h2>
+            <p>info@rodekors.dk</p>
+            <p>+45 35 25 92 00</p>
+          </article>
+        </div>
+        <div class="logoBox">
+          <div>
+            <Image class="footLogo" src={rodekorsLogo} alt="Røde Kors logo" />
+            <Image class="footLogo" src={urkLogo} alt="URK logo" />
+          </div>
+          <div>
+            <Image class="footLogo2" src={rkfLogo} alt="RKF logo" />
+          </div>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
+
+<style>
+  footer {
+    background-color: var(--secondary-accentcolor);
+    color: var(--alternate-text-color);
+  }
+
+  .kontaktBox {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    margin: auto;
+    width: 80%;
+  }
+
+  footer p {
+    text-align: center;
+  }
+
+  footer h2 {
+    text-align: center;
+  }
+
+  .ikonBox {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .logoBox {
+    display: grid;
+    grid-template-columns: 0.8fr 2fr;
+    gap: 1rem;
+    padding: 1rem;
+    padding-top: 0;
+    margin: auto;
+    width: 80%;
+  }
+
+  @media (max-width: 768px) {
+    .kontaktBox {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .logoBox {
+      grid-template-columns: 1fr;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .footLogo {
+      width: 100px;
+      margin: auto;
+    }
+
+    footer article {
+      margin-bottom: 2rem;
+    }
+  }
+</style>

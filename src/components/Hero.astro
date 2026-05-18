@@ -1,0 +1,18 @@
+---
+import placeholderVideo from "../assets/placeholder_video.mp4";
+---
+
+<video controls loop playsinline>
+  <source src={placeholderVideo} type="video/mp4" />
+  Din browser understøtter ikke videoafspilleren.
+</video>
+
+<style>
+  video {
+    display: block;
+    height: auto;
+    margin: 2rem auto;
+    width: 95%;
+    border-radius: 30px;
+  }
+</style>
