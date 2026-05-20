@@ -1,0 +1,127 @@
+
+<h1>Men hvad så hvis?</h1>
+<h3>Stadig i tvivl? Her er svarene på de mest stillede sprøgsmål:</h3>
+
+<ul id="accordion">
+<li>
+    <input type="checkbox" id="first" checked>
+    <label for="first"> <h3>Hvad får jeg ud af at være frivillig?</h3> <span>&#9654</span></label>
+    <div class="content">
+        <p>Der er mange forskellige grunde til, at folk laver frivilligt arbejde. Her er nogen af dem, vi ofte hører:</p>
+        <ul class="liste">
+            <li>Du får fagligt udbytte ud af det</li>
+            <li>Det er sjovt at arbejde sammen med andre frivillige</li>
+            <li>Du udvikler dig personligt</li>
+            <li>Du møder nye mennesker</li>
+            <li>Det er godt for CV'et</li>
+            <li>Du bruger dine faglige og personlige talenter til gøre noget godt for folk, der er ensomme eller udsatte</li>
+        </ul>
+    </div>
+</li>
+<li>  <input type="checkbox" id="second" >
+    <label for="second"> <h3>Hvad kræver det af mig at blive frivillig?</h3> <span>&#9654</span></label>
+    <div class="content">
+        <p>Det afhænger både af, hvor meget tid du gerne vil bruge og hvilke aktiviteter, du vælger. Mange aktiviteter er ret fleksible, når det gælder tidsforbrug. Fx afholder vores kvindegrupper møder 1-4 gange om måneden, og du skal kunne deltage min. en gang om måneden – men du kan også deltage fire gange. </p>
+    </div></li>
+<li><input type="checkbox" id="third">
+    <label for="third"> <h3>Kan jeg være frivillig om aften?</h3> <span>&#9654</span></label>
+    <div class="content">
+        <p>Ja. Nogle aktiviteter passer bedst til dagtimerne (fx hvis du vil være frivillig i en Røde Kors butik), mens andre er bedst om eftermiddagen/aftenen (fx besøgsven/lektiehjælper). Nogle aktiviteter ligger også i weekender/ferier (fx samarittervagt og ferielejre). </p>
+    </div></li>
+<li><input type="checkbox" id="fourth">
+    <label for="fourth"> <h3>Får jeg nogen uddannelse eller træning?</h3> <span>&#9654</span></label>
+    <div class="content">
+        <p>De fleste aktiviteter har introduktionsforløb til nye frivillige. Ofte har du også mulighed for at følges med en erfaren frivillig de første par gange. Inden for nogle aktiviteter er det bedst, at du har en særlig uddannelse eller erfaring, inden du starter. Vil du gerne være samarit, skal du eksempelvis på et samaritkursus. Vil du være frivillig i Vågetjenesten, er det en fordel, hvis du erfaring med omsorg for døende mennesker. </p>
+    </div></li>
+<li><input type="checkbox" id="fifth">
+    <label for="fifth"> <h3>Kan jeg prøve det af inden jeg melder mig ind?</h3> <span>&#9654</span></label>
+    <div class="content">
+        <p>Ja, det kan du godt. Når du har fundet noget, du gerne vil hjælpe med, så aftaler du nærmer med den person, der leder aktiviteten i dit lokalområde. Første skridt er at fortælle os, hvad du interesserer dig for, og hvor i Danmark du bor - det kan du gøre på linket herunder, så kontakter vi dig efterfølgende og hjælper dig videre </p>
+    </div></li>
+<li><input type="checkbox" id="sixth">
+    <label for="sixth"> <h3>Er det muligt at stoppe som frivillig?</h3> <span>&#9654</span></label>
+    <div class="content">
+        <p>Ja. Men hvis du oplever, at du ikke længere har tid eller lyst til at være frivillig, kan det være en god idé at tale med din aktivitetsleder, inden du stopper. Måske kan aktivitetslederen forbedre nogle ting eller kan ændre din rolle til noget, der passer dig bedre.</p>
+    </div></li>
+<li><input type="checkbox" id="seventh">
+    <label for="seventh"> <h3>Hvordan kommer jeg igang</h3> <span>&#9654</span></label>
+    <div class="content">
+        <p>Udfyld formularen nedenfor, og meld dig ind som friviillig hos Røde Kors</p>
+    </div></li>
+</ul>
+
+
+<style>
+    
+    #accordion{
+        margin: auto;
+        width: 50%
+    }
+
+    /* Kun top-level <li> i accordion skal ikke have bullets.
+       Brug child selector (>) så indlejrede lister bevarer deres bullets. */
+    #accordion > li{
+        list-style: none;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #accordion li label{
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        color: var(--alternate-text-color);
+        background-color: var(--primary-accentcolor); }
+
+        #accordion li label span{
+            transform: rotate(0deg);
+            transition: transform 0.3s ease, color 0.3s ease;
+            font-size: 22px;
+            color: var(--secondary-accentcolor);
+        }
+        #accordion li label span:hover{
+            color: var(--teriary-accentcolor);
+        }
+
+        #accordion input[type="checkbox"]{
+            display: none;
+        }
+
+        #accordion input[type="checkbox"]:checked + label span{
+            transform: rotate(90deg);
+        }
+
+        /* accordion-indhold: som standard skjules indholdet
+           - max-height: 0 + overflow: hidden skjuler teksten
+           - transition på max-height laver en glidende åbning
+           - padding flyttes ind i den åbnede tilstand, så der ikke er tom plads når lukkede */
+        #accordion .content{
+            line-height: 26px;
+            max-height: 0;
+            overflow: hidden; /* vigtig: skjuler indhold når max-height er 0 */
+            transition: max-height 0.45s ease, padding 0.25s ease;
+            padding: 0 10px; /* kort padding når lukket (kan være 0) */
+        }
+
+        /* Når checkbox er checked (åbent), sæt en højere max-height og normal padding */
+        #accordion input[type="checkbox"]:checked + label + .content{
+            max-height: 600px; /* stor nok til at rumme indholdet */
+            padding: 1rem 10px; /* aktiv padding når åbent */
+        }
+
+    h3{
+        text-align: center;
+        font-weight: normal;
+        margin-bottom: 20px;
+    }
+    /* Stil for den indlejrede punktliste (.liste)
+       - sæt list-style på selve elementet og giv venstre padding
+         så bullets vises inde i layoutet. */
+    .liste{
+        list-style-type: circle;
+        padding-left: 1.25rem;
+        margin: 0.5rem 0;
+    }
+</style>
