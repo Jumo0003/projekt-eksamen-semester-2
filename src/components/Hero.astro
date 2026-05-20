@@ -1,18 +1,38 @@
 ---
 import placeholderVideo from "../assets/placeholder_video.mp4";
+import { Image } from "astro:assets";
+import logo from "../assets/rkf_logo_header.png";
 ---
+<div id="heroSection">
+<Image class="logo"src={logo} alt="Røde Kors Frivillige Logo" />
 
 <video controls loop playsinline>
   <source src={placeholderVideo} type="video/mp4" />
   Din browser understøtter ikke videoafspilleren.
 </video>
+</div>
 
 <style>
+#heroSection {
+  position: relative;
+  width: 95%;
+  margin: 3rem auto;
+}
+
   video {
     display: block;
     height: auto;
-    margin: 2rem auto;
-    width: 95%;
+    width: 100%;
     border-radius: 30px;
+  }
+
+  .logo{
+    padding-top: 1rem;
+    width: 260px;
+    position: absolute;
+    top: 0;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
   }
 </style>

@@ -9,7 +9,6 @@ import urkLogo from "../assets/urk_logo.png";
 import rkfLogo from "../assets/rkf_logo.png";
 import "../styles/global.css";
 ---
-
 <html lang="da">
   <head>
     <meta charset="utf-8" />
@@ -22,6 +21,8 @@ import "../styles/global.css";
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
+
+    <link href="https://fonts.googleapis.com/css2?family=Gudea:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -72,11 +73,19 @@ import "../styles/global.css";
         </div>
         <div class="logoBox">
           <div>
-            <Image class="footLogo" src={rodekorsLogo} alt="Røde Kors logo" />
-            <Image class="footLogo" src={urkLogo} alt="URK logo" />
+            <a href="https://www.rodekors.dk/" alt="Link til Røde Kors hjemmeside">
+              <Image class="footLogo" src={rodekorsLogo} alt="Røde Kors logo" />
+            </a>
+
+            <a href="https://www.rodekors.dk/" alt="Link til Ungdommens Røde Kors hjemmeside">
+               <Image class="footLogo" src={urkLogo} alt="URK logo" />
+            </a>
+          
           </div>
           <div>
-            <Image class="footLogo2" src={rkfLogo} alt="RKF logo" />
+            <a href="#heroSection" alt="Link til Røde Kors Frivillige hjemmeside">
+              <Image class="footLogo2" src={rkfLogo} alt="RKF logo" />
+            </a>
           </div>
         </div>
       </footer>
@@ -115,12 +124,17 @@ import "../styles/global.css";
 
   .logoBox {
     display: grid;
-    grid-template-columns: 0.8fr 2fr;
+    grid-template-columns: 1fr 2fr;
     gap: 1rem;
     padding: 1rem;
     padding-top: 0;
     margin: auto;
     width: 80%;
+  }
+
+  .footLogo2{
+    width: 70%;
+    justify-self: end;
   }
 
   @media (max-width: 768px) {
@@ -131,17 +145,19 @@ import "../styles/global.css";
       padding: 1rem;
     }
 
-    .logoBox {
+    .logoBox{
       grid-template-columns: 1fr;
       text-align: center;
-      padding: 1rem;
     }
-
     .footLogo {
-      width: 100px;
+      width: 80%;
       margin: auto;
     }
 
+    .footLogo2{
+      width: 100;
+    }
+    
     footer article {
       margin-bottom: 2rem;
     }
