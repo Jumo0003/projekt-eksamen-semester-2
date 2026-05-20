@@ -1,6 +1,354 @@
 ---
 //@ts-nocheck
-import Forskel from "../components/forskelPopover.astro";
-import Fremtid from "../components/fremtidPopover.astro";
-import Faellesskab from "../components/faellesskabPopover.astro";
+import { Image } from "astro:assets";
+import Forskel from "../assets/forskel.png";
+import Fremtid from "../assets/fremtid.png";
+import Faellesskab from "../assets/faellesskab.png";
+import ForskelSlide1 from "../assets/forskel_slide1.png";
+import ForskelSlide2 from "../assets/forskel_slide2.png";
+import ForskelSlide3 from "../assets/forskel_slide3.png";
+import FremtidSlide1 from "../assets/fremtid_slide1.png";
+import Faellesskabslide1 from "../assets/faellesskab_slide1.png";
 ---
+
+<h1>Hvad får jeg ud af det?</h1>
+
+<div class="highlights">
+  <button popovertarget="forskelPopover">
+    <Image class="highlight" src={Forskel} alt="forskel highlight" />
+    <p>Forskel</p>
+  </button>
+
+  <button popovertarget="fremtidPopover">
+    <Image class="highlight" src={Fremtid} alt="fremtid highlight" />
+    <p>Fremtid</p>
+  </button>
+
+  <button popovertarget="faellesskabPopover">
+    <Image class="highlight" src={Faellesskab} alt="Fællesskab highlight" />
+    <p>Fællesskab</p>
+  </button>
+</div>
+
+<div class="popovers">
+  <div popover id="forskelPopover">
+    <div></div>
+
+    <div class="slideindhold">
+      <p><b>Forskel</b> lige nu</p>
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <Image
+            src={ForskelSlide1}
+            alt="Statistik hvor mange røde kors hjalp i 2025"
+          />
+        </div>
+
+        <div class="mySlides fade">
+          <Image
+            src={ForskelSlide2}
+            alt="Fordeling hvordan vi bruger pengene"
+          />
+        </div>
+
+        <div class="mySlides fade">
+          <Image src={ForskelSlide3} alt="Oversigt hvor kommer pengene fra" />
+        </div>
+
+        <div class="mySlides fade">
+          <div class="text">
+            Tid er relativt. To timer om måneden føles måske ikke som meget for
+            dig. Men for et andet menneske kan det ændre hele ugen. Du behøver
+            ikke redde hele verden på én gang. Mindre kan gøre det. Dit nærvær
+            er det, der tæller.
+          </div>
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <br />
+
+      <!-- The dots/circles -->
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
+
+      <Image
+        src={ForskelSlide1}
+        alt="Statistik af hvor mange røde kors hjalp i 2025"
+      />
+    </div>
+    <div>
+      <button popovertarget="forskelPopover" class="close-button">x</button>
+    </div>
+  </div>
+
+  <div popover id="fremtidPopover">
+    <div></div>
+
+    <div>
+      <p><b>Fremtid</b> og udvikling</p>
+
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <Image src={FremtidSlide1} alt="Billede af frivilligt" />
+        </div>
+
+        <div class="mySlides fade">
+          <p>
+            Du gør noget godt for andre. Samtidig rykker du dig selv. Som
+            frivillig lærer du at tage ansvar i praksis. Du styrker dine evner
+            inden for samarbejde og ledelse. Det er kompetencer, som fremtidige
+            arbejdsgivere elsker. Gør en forskel, mens du bygger din fremtid.
+            Start her.
+          </p>
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <br />
+
+      <!-- The dots/circles -->
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
+    </div>
+    <div>
+      <button popovertarget="fremtidPopover" class="close-button">x</button>
+    </div>
+  </div>
+
+  <div popover id="faellesskabPopover">
+    <div></div>
+    <div>
+      <p><b>Fællesskab</b> i fokus</p>
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <Image src={FaellesskabSlide1} alt="Billede af fællesskab" />
+        </div>
+
+        <div class="mySlides fade">
+          <p>
+            Mere end bare kollegaer. Hos Røde Kors kan du blive en del af et
+            stærkt ungenetværk. Vi griner, samarbejder og flytter grænser
+            sammen. Du kan møde mennesker med samme drive som dig selv. Nye
+            venskaber og sociale events venter. Find dit nye fællesskab i Røde
+            Kors. Kom og vær med!
+          </p>
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <br />
+
+      <!-- The dots/circles -->
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
+    </div>
+    <div>
+      <button popovertarget="faellesskabPopover" class="close-button">x</button>
+    </div>
+  </div>
+</div>
+<script is:inline src="/js/slideshow.js"></script>
+
+<style>
+  /***STYLE SLIDESHOW***/
+
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Slideshow container */
+  .slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+
+  .active,
+  .dot:hover {
+    background-color: #717171;
+  }
+
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  button {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+  .highlight {
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    border: solid 6px var(--primary-accentcolor);
+    padding: 5px;
+  }
+
+  .slideindhold {
+    background-color: #f4afa3;
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+
+  .highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: auto;
+    width: 60%;
+    gap: 3rem;
+    padding-bottom: 1rem;
+  }
+
+  .popovers {
+    display: grid;
+    gap: 1.5rem;
+    width: 80%;
+    margin: auto;
+    padding-bottom: 2rem;
+  }
+
+  [popover] {
+    display: none;
+    background-color: var(--primary-accentcolor);
+    border-radius: 1.2rem;
+    padding: 1.2rem;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 1.5rem;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  }
+
+  [popover].open {
+    display: grid;
+  }
+
+  [popover] p {
+    color: var(--on-primary);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .close-button {
+    color: var(--on-primary);
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.14);
+    border-radius: 0.9rem;
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener("click", (event) => {
+    const trigger = event.target.closest("[popovertarget]");
+    if (trigger) {
+      event.preventDefault();
+      const id = trigger.getAttribute("popovertarget");
+      const popover = document.getElementById(id);
+      if (!popover) return;
+
+      const isOpen = popover.classList.toggle("open");
+      document.querySelectorAll("[popover].open").forEach((other) => {
+        if (other !== popover) {
+          other.classList.remove("open");
+        }
+      });
+
+      if (!isOpen) {
+        popover.classList.remove("open");
+      }
+
+      return;
+    }
+
+    if (!event.target.closest("[popover]")) {
+      document.querySelectorAll("[popover].open").forEach((openPopover) => {
+        openPopover.classList.remove("open");
+      });
+    }
+  });
+</script>
