@@ -48,15 +48,12 @@ import larina from '../assets/larina.png';
 
 </div>
 
-
-
-
 <style>
 .wrapper {
     display: flex;
     overflow-x: auto;
     overflow-y: hidden;
-    width: 100%;
+    width: 60%;
     max-width: 1200px;
     margin: auto;
     gap: 1rem;
@@ -87,8 +84,21 @@ article{
     object-fit: cover;
 }
 
+/* width */
+.wrapper::-webkit-scrollbar {
+  width: 8px;
+}
 
+/* Track */
+.wrapper::-webkit-scrollbar-track {
+  background: #f1f1f100;
+}
 
+/* Handle */
+.wrapper::-webkit-scrollbar-thumb {
+  background: #b9b9b9;
+  border-radius: 10px;
+}
 </style>
 
 
