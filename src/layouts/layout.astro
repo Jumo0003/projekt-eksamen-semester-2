@@ -7,13 +7,17 @@ import tiktokIkon from "../assets/tiktok_ikon.png";
 import rodekorsLogo from "../assets/rodekors_logo.png";
 import urkLogo from "../assets/urk_logo.png";
 import rkfLogo from "../assets/rkf_logo.png";
+import favicon from "../assets/favicon.png";
 import "../styles/global.css";
 ---
 <html lang="da">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+
+    <link rel="icon" type="image/png" sizes="16x16" href={favicon} />
+    <link rel="icon" type="image/png" sizes="32x32" href={favicon} />
+    <link rel="icon" type="image/svg+xml" href={favicon} />
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <title>Røde Kors Frivillige</title>

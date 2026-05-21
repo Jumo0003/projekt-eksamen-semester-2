@@ -11,6 +11,10 @@ img {
   display: block;
 }
 
+@font-face {
+  font-family: "Handmade Alphabet";
+  src: url(handmade-alphabet.regular.otf);
+}
 /*************** CSS variabler *********************/
 :root {
   /* Farvepalette */
@@ -36,11 +40,7 @@ img {
 body {
   background-color: var(--background-color);
   color: var(--text-color);
-  /* font-family: "Inter", sans-serif;
-  font-style: normal; */
   font-family: "Gudea", sans-serif;
-  font-weight: 400;
-  font-style: normal;
 }
 
 button,
@@ -50,24 +50,21 @@ select {
   font-family: inherit;
 }
 
-@font-face {
-  font-family: "HandmadeAlphabet";
-  src: url("../handmade-alphabet.otf") format("opentype");
-}
-
 h1 {
   text-align: center;
   margin-block: 2rem;
   font-size: 4vw;
+  font-family: "Handmade Alphabet";
+  font-weight: normal;
 }
 
 h2 {
-  font-size: 2vw;
+  font-family: "Handmade Alphabet";
+  font-weight: normal;
 }
 
 h3 {
-  font-size: 2vw;
-  font-weight: 500;
+  font-weight: normal;
 }
 
 /* width */
