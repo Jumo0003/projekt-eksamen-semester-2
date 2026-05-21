@@ -4,11 +4,17 @@ import { Image } from "astro:assets";
 import Forskel from "../assets/forskel.png";
 import Fremtid from "../assets/fremtid.png";
 import Faellesskab from "../assets/faellesskab.png";
+import Profilbillede from "../assets/profilbillede.png";
+
 import ForskelSlide1 from "../assets/forskel_slide1.png";
 import ForskelSlide2 from "../assets/forskel_slide2.png";
 import ForskelSlide3 from "../assets/forskel_slide3.png";
+import ForskelSlide4 from "../assets/forskel_slide4.png";
+
 import FremtidSlide1 from "../assets/fremtid_slide1.png";
+import FremtidSlide2 from "../assets/fremtid_slide2.png";
 import FaellesskabSlide1 from "../assets/faellesskab_slide1.png";
+import FaellesskabSlide2 from "../assets/faellesskab_slide2.png";
 ---
 
 <h1>Hvad får jeg ud af det?</h1>
@@ -30,38 +36,33 @@ import FaellesskabSlide1 from "../assets/faellesskab_slide1.png";
   </button>
 </div>
 
-<div class="popovers">
+<!-- Popovers -->
   <div popover id="forskelPopover">
     <div></div>
 
     <div class="slideindhold">
-      <p><b>Forskel</b> lige nu</p>
+      <p><Image class="profilbillede" src={Profilbillede} alt="Røde Kors Frivillige SoMe profilbillede"/><b>Forskel</b> lige nu</p>
       <div class="slideshow-container">
         <div class="mySlides fade">
           <Image
             src={ForskelSlide1}
-            alt="Statistik hvor mange røde kors hjalp i 2025"
+            alt="Statistik hvor mange røde kors hjalp i 2025" class="forskelImg"
           />
         </div>
 
         <div class="mySlides fade">
           <Image
             src={ForskelSlide2}
-            alt="Fordeling hvordan vi bruger pengene"
+            alt="Fordeling hvordan vi bruger pengene" class="forskelImg"
           />
         </div>
 
         <div class="mySlides fade">
-          <Image src={ForskelSlide3} alt="Oversigt hvor kommer pengene fra" />
+          <Image src={ForskelSlide3} alt="Oversigt hvor kommer pengene fra" class="forskelImg" />
         </div>
 
         <div class="mySlides fade">
-          <div class="text">
-            Tid er relativt. To timer om måneden føles måske ikke som meget for
-            dig. Men for et andet menneske kan det ændre hele ugen. Du behøver
-            ikke redde hele verden på én gang. Mindre kan gøre det. Dit nærvær
-            er det, der tæller.
-          </div>
+          <Image src={ForskelSlide4} alt="Oversigt over udgifter" class="forskelImg" />
         </div>
 
         <!-- Next and previous buttons -->
@@ -70,42 +71,25 @@ import FaellesskabSlide1 from "../assets/faellesskab_slide1.png";
       </div>
       <br />
 
-      <!-- The dots/circles -->
-      <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-      </div>
-
-      <Image
-        src={ForskelSlide1}
-        alt="Statistik af hvor mange røde kors hjalp i 2025"
-      />
     </div>
     <div>
-      <button popovertarget="forskelPopover" class="close-button">x</button>
+      <button popovertarget="forskelPopover" class="close-button">&#128937</button>
     </div>
   </div>
 
   <div popover id="fremtidPopover">
     <div></div>
 
-    <div>
-      <p><b>Fremtid</b> og udvikling</p>
+    <div class="slideindhold">
+      <p><Image class="profilbillede" src={Profilbillede} alt="Røde Kors Frivillige SoMe profilbillede"/><b>Fremtid</b> lidt senere</p>
 
       <div class="slideshow-container">
         <div class="mySlides fade">
-          <Image src={FremtidSlide1} alt="Billede af frivilligt" />
+          <Image src={FremtidSlide1} alt="Billede af frivilligt" class="forskelImg"/>
         </div>
 
         <div class="mySlides fade">
-          <p>
-            Du gør noget godt for andre. Samtidig rykker du dig selv. Som
-            frivillig lærer du at tage ansvar i praksis. Du styrker dine evner
-            inden for samarbejde og ledelse. Det er kompetencer, som fremtidige
-            arbejdsgivere elsker. Gør en forskel, mens du bygger din fremtid.
-            Start her.
-          </p>
+         <Image src={FremtidSlide2} alt="Billede af frivilligt" class="forskelImg" />
         </div>
 
         <!-- Next and previous buttons -->
@@ -114,35 +98,23 @@ import FaellesskabSlide1 from "../assets/faellesskab_slide1.png";
       </div>
       <br />
 
-      <!-- The dots/circles -->
-      <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-      </div>
     </div>
     <div>
-      <button popovertarget="fremtidPopover" class="close-button">x</button>
+      <button popovertarget="fremtidPopover" class="close-button">&#128937</button>
     </div>
   </div>
 
   <div popover id="faellesskabPopover">
     <div></div>
-    <div>
-      <p><b>Fællesskab</b> i fokus</p>
+    <div class="slideindhold">
+      <p><Image class="profilbillede" src={Profilbillede} alt="Røde Kors Frivillige SoMe profilbillede"/><b>Fællesskab</b> altid</p>
       <div class="slideshow-container">
         <div class="mySlides fade">
-          <Image src={FaellesskabSlide1} alt="Billede af fællesskab" />
+          <Image class="forskelImg" src={FaellesskabSlide1} alt="Billede af fællesskab" />
         </div>
 
         <div class="mySlides fade">
-          <p>
-            Mere end bare kollegaer. Hos Røde Kors kan du blive en del af et
-            stærkt ungenetværk. Vi griner, samarbejder og flytter grænser
-            sammen. Du kan møde mennesker med samme drive som dig selv. Nye
-            venskaber og sociale events venter. Find dit nye fællesskab i Røde
-            Kors. Kom og vær med!
-          </p>
+          <Image class="forskelImg" src={FaellesskabSlide2} alt="Billede af fællesskab" />
         </div>
 
         <!-- Next and previous buttons -->
@@ -151,19 +123,12 @@ import FaellesskabSlide1 from "../assets/faellesskab_slide1.png";
       </div>
       <br />
 
-      <!-- The dots/circles -->
-      <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-      </div>
     </div>
     <div>
-      <button popovertarget="faellesskabPopover" class="close-button">x</button>
+      <button popovertarget="faellesskabPopover" class="close-button">&#128937</button>
     </div>
   </div>
-</div>
-<script is:inline src="/js/slideshow.js"></script>
+
 
 <style>
   /***STYLE SLIDESHOW***/
@@ -207,55 +172,6 @@ import FaellesskabSlide1 from "../assets/faellesskab_slide1.png";
     border-radius: 3px 0 0 3px;
   }
 
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover,
-  .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-
-  /* Caption text */
-  .text {
-    color: #f2f2f2;
-    font-size: 15px;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
-    text-align: center;
-  }
-
-  /* The dots/bullets/indicators */
-  .dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-  }
-
-  .active,
-  .dot:hover {
-    background-color: #717171;
-  }
-
-  /* Fading animation */
-  .fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-  }
-
-  @keyframes fade {
-    from {
-      opacity: 0.4;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
   button {
     border: none;
     cursor: pointer;
@@ -267,14 +183,37 @@ import FaellesskabSlide1 from "../assets/faellesskab_slide1.png";
     margin-bottom: 1rem;
     border: solid 6px var(--primary-accentcolor);
     padding: 5px;
+    transition: border 0.3s ease;
+  }
+
+    .highlight:hover{
+    border: solid 6px var(--tertiary-accentcolor);
   }
 
   .slideindhold {
     background-color: #f4afa3;
     border-radius: 1rem;
     padding: 1rem;
+height: 90vh;
+width: 100%;
   }
 
+.forskelImg{
+  width: 60%;
+  justify-self: center;
+  align-items: center;
+}
+
+.profilbillede{
+  width:auto;
+  height: 30px;
+}
+
+p{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
   .highlights {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -284,22 +223,15 @@ import FaellesskabSlide1 from "../assets/faellesskab_slide1.png";
     padding-bottom: 1rem;
   }
 
-  .popovers {
-    display: grid;
-    gap: 1.5rem;
-    width: 80%;
-    margin: auto;
-    padding-bottom: 2rem;
-  }
-
   [popover] {
     display: none;
     background-color: var(--primary-accentcolor);
-    border-radius: 1.2rem;
     padding: 1.2rem;
     grid-template-columns: 1fr 2fr 1fr;
     gap: 1.5rem;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+    border: none;
+    height: 100%;
+    width: 100%;
   }
 
   [popover].open {
@@ -307,18 +239,15 @@ import FaellesskabSlide1 from "../assets/faellesskab_slide1.png";
   }
 
   [popover] p {
-    color: var(--on-primary);
+    color: var(--alternate-text-color);
     margin: 0;
     line-height: 1.6;
   }
 
   .close-button {
-    color: var(--on-primary);
-    font-size: 1.1rem;
+    color: var(--alternate-text-color);
+    font-size: 3rem;
     font-weight: bold;
-    padding: 0.75rem 1rem;
-    background: rgba(255, 255, 255, 0.14);
-    border-radius: 0.9rem;
   }
 </style>
 
@@ -351,4 +280,40 @@ import FaellesskabSlide1 from "../assets/faellesskab_slide1.png";
       });
     }
   });
+</script>
+
+<script is:inline>
+  let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides((slideIndex += n));
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides((slideIndex = n));
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " active";
+}
+
 </script>
