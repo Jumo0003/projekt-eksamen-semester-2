@@ -2,6 +2,7 @@
 import placeholderVideo from "../assets/placeholder_video.mp4";
 import { Image } from "astro:assets";
 import logo from "../assets/rkf_logo_header.png";
+import menu from "../assets/menuIkon.png";
 ---
 <div id="heroSection">
 <Image class="logo"src={logo} alt="Røde Kors Frivillige Logo" />
@@ -10,6 +11,20 @@ import logo from "../assets/rkf_logo_header.png";
   <source src={placeholderVideo} type="video/mp4" />
   Din browser understøtter ikke videoafspilleren.
 </video>
+
+<div class="dropdown">
+  <button class="dropbtn">
+    <span>&#9660</span>
+  </button>
+  <div class="dropdown-content">
+    <a href="#">Fordele</a>
+    <a href="#">Aktiviteter</a>
+    <a href="#">Frivillige</a>
+    <a href="#">FAQ</a>
+    <a href="#">Bliv frivillig</a>
+    <a href="#">Kontakt</a>
+  </div>
+</div>
 
 </div>
 
@@ -28,12 +43,99 @@ import logo from "../assets/rkf_logo_header.png";
   }
 
   .logo{
-    padding-top: 1rem;
-    width: 260px;
+    padding-top: 2rem;
+    width: 300px;
     position: absolute;
     top: 0;
-    left: 20%;
+    left: 12%;
     transform: translate(-50%, -50%);
     z-index: 1;
   }
+
+
+.dropdown {
+  position: relative;
+}
+
+span {
+font-size: 24px;
+transform: rotate(0deg);
+transition: transform 0.3s ease, color 0.3s ease;
+}
+
+a{
+  font-family: "Handmade Alphabet";
+  font-weight: normal;
+}
+
+/* Style the dropdown button */
+.dropbtn {
+  background-color: var(--tertiary-accentcolor);
+  color: var(--text-color);
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  right: 50px;
+  height: auto;
+  width: 100px;
+  font-size:100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: 0.2s;
+}
+
+span:hover{
+    color: var(--tertiary-accentcolor);
+    transform: rotate(180deg);
+}
+
+/* Dropdown content */
+.dropdown-content {
+  display: none;
+  position: fixed;
+  background-color: var(--tertiary-accentcolor);
+  min-width: 120px;
+text-align: right;
+  top: 50px;
+  right: 50px;
+  border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.dropdown-content:hover .dropbtn{
+  border-bottom-right-radius: 0;
+}
+
+.dropbtn:hover{
+  border-bottom-left-radius:0;
+  border-bottom-right-radius: 0;
+}
+
+/* Links inside dropdown content */
+.dropdown-content a {
+  color: var(--text-color);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: 0.2s;
+  border-radius: 10px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: var(--secondary-accentcolor);
+}
+
+/* Show the dropdown content on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change background color of dropdown button on hover */
+.dropdown:hover .dropbtn {
+  background-color: var(--primary-accentcolor);
+}
 </style>
