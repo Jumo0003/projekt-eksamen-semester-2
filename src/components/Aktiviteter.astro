@@ -18,6 +18,8 @@ import mentor from "../assets/mentor.png";
 import hospitalscafe from "../assets/hospitalscafe.png";
 import lejrleder from "../assets/lejrleder.png";
 import asylcenter from "../assets/asylcenter.png";
+
+import asylcenter2 from "../assets/supabase/asylcenter.webp";
 ---
 <h1>Hvad kan jeg lave?</h1>
 <ul id="accordion">
@@ -144,6 +146,44 @@ import asylcenter from "../assets/asylcenter.png";
        </div>
     </li>
 </ul>
+
+<article id="aktivitetPopover">
+<div>
+<Image src={asylcenter2} alt="billede af aktiviteten"/>
+</div>
+<div>
+<ul id="accordion">
+    <li>
+        <input type="checkbox" id="first" checked>
+        <label for="first">Hvad skal jeg lave?<span>&#9654</span></label>
+       <div class="content">
+    Som frivillig på et asylcenter er der mange forskellige aktiviteter. Du har måske mest lyst til at lave gymnastik med børnene eller hjælpe i legestuen. Det kan også være, at du vil bruge din tid i syklubben eller på cykelværkstedet, hvor man er sammen om at lave noget praktisk. Eller måske har du en idé til et projekt, som du tror can være sjovt for asylansøgere? Du kan også blive repræsentant for et barn eller en ung, der er flygtet alene. Det vigtigste er, at du engagerer dig for en tid, så asylansøgerne oplever kontinuitet og en vedholdende relation. 
+       </div>
+    </li>
+      <li>
+        <input type="checkbox" id="second">
+        <label for="second">Hvad får jeg ud af det?<span>&#9654</span></label>
+       <div class="content">
+Asylansøgere ønsker at mødes helt normalt med andre mennesker og få mere at vide om det land de er kommet til. Mange har mistet både familie og venner, men du kan være den positive relation, som minder dem om deres evner og håb for fremtiden. Dét er en god følelse.       </div>
+    </li>
+        <li>
+        <input type="checkbox" id="third">
+        <label for="third">Hvor lang tid skal jeg bruge?<span>&#9654</span></label>
+       <div class="content">
+Afhængigt af hvilken opgave du tager på asylcenteret, kan det være alt fra få timer om ugen, til flere timer dagligt.</div>
+    </li>
+        <li>
+        <input type="checkbox" id="fourth">
+        <label for="fourth">Hvordan kommer jeg i gang?<span>&#9654</span></label>
+       <div class="content">
+Asylansøgerne mangler måske en som dig? Tryk på den gule knap, hvis du er interesseret!</div>
+    </li>
+</ul>
+
+<button popovertarget="aktivitetPopover">x</button>
+
+</div>
+</article>
 
 <style>
 button{
