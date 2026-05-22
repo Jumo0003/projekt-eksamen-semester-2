@@ -8,7 +8,7 @@ import ForskelSlide1 from "../assets/forskel_slide1.png";
 import ForskelSlide2 from "../assets/forskel_slide2.png";
 import ForskelSlide3 from "../assets/forskel_slide3.png";
 import FremtidSlide1 from "../assets/fremtid_slide1.png";
-import Faellesskabslide1 from "../assets/faellesskab_slide1.png";
+import FaellesskabSlide1 from "../assets/faellesskab_slide1.png";
 ---
 
 <h1>Hvad får jeg ud af det?</h1>
@@ -64,17 +64,19 @@ import Faellesskabslide1 from "../assets/faellesskab_slide1.png";
           </div>
         </div>
 
+        
+
         <!-- Next and previous buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <a class="prev" onclick="plusSlides(-1, this)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, this)">&#10095;</a>
       </div>
       <br />
 
       <!-- The dots/circles -->
       <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(1, this)"></span>
+        <span class="dot" onclick="currentSlide(2, this)"></span>
+        <span class="dot" onclick="currentSlide(3, this)"></span>
       </div>
 
       <Image
@@ -109,16 +111,16 @@ import Faellesskabslide1 from "../assets/faellesskab_slide1.png";
         </div>
 
         <!-- Next and previous buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="prev" onclick="plusSlides(-1, this)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
       </div>
       <br />
 
       <!-- The dots/circles -->
       <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(1, this)"></span>
+        <span class="dot" onclick="currentSlide(2, this)"></span>
+        <span class="dot" onclick="currentSlide(3, this)"></span>
       </div>
     </div>
     <div>
@@ -146,16 +148,16 @@ import Faellesskabslide1 from "../assets/faellesskab_slide1.png";
         </div>
 
         <!-- Next and previous buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="prev" onclick="plusSlides(-1, this)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
       </div>
       <br />
 
       <!-- The dots/circles -->
       <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(1, this)"></span>
+        <span class="dot" onclick="currentSlide(2, this)"></span>
+        <span class="dot" onclick="currentSlide(3, this)"></span>
       </div>
     </div>
     <div>
