@@ -1,3 +1,5 @@
+
+<h1>Hvad så nu?</h1>
 <form>
    <p>Udfyld formularen og bliv ringet op af en Røde Kors-medarbejder eller en frivilligleder i dit lokalområde. 
     Sammen finder I ud af, hvilken frivilligaktivitet, 
@@ -107,9 +109,15 @@ Se Røde Kors’ politik om persondata.  </p>
 }
 
 form{
+    display: grid;
     background-color:#D74D40 ;
   gap: 10px;
-padding:12px;
+padding: 15px;
+width: 55%;
+ align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 25px;
 }
 
 .Frivillighedstyper{
@@ -134,6 +142,21 @@ p, h3, label{
   color: white; 
 }
 
+p{
+    max-width: 65ch;
+}
+
+input[type="text"],input[type="email"],input[type="number"], textarea{
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+   background-color: #E8A099;
+  appearance: none;
+  cursor: pointer;
+}
+
 input[type="checkbox"]{
   background-color: #E8A099;
   appearance: none;
@@ -144,6 +167,7 @@ input[type="checkbox"]{
   cursor: pointer;
   align-items: center;
   justify-content: center;
+  margin-right: 10px;
 }
 
 input[type="checkbox"]:checked::before{
@@ -151,15 +175,6 @@ input[type="checkbox"]:checked::before{
   font-size: 20px;
 }
 
-input[type="text"],input[type="email"],input[type="number"]{
-  background-color: #E8A099;
-  appearance: none;
-  cursor: pointer;
-}
-
-textarea{
-   background-color: #E8A099;
-}
 
 .sammentykke{
   display:flex; 
