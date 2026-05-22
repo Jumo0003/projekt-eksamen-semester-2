@@ -13,8 +13,9 @@ img {
 
 @font-face {
   font-family: "Handmade Alphabet";
-  src: url(handmade-alphabet.regular.otf);
+  src: url(../assets/handmade-alphabet.regular.otf);
 }
+
 /*************** CSS variabler *********************/
 :root {
   /* Farvepalette */
