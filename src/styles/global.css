@@ -11,6 +11,10 @@ img {
   display: block;
 }
 
+@font-face {
+  font-family: "Handmade Alphabet";
+  src: url(handmade-alphabet.regular.otf);
+}
 /*************** CSS variabler *********************/
 :root {
   /* Farvepalette */
@@ -31,20 +35,55 @@ img {
 */
 }
 
+/*************** Global styling *********************/
+
 body {
   background-color: var(--background-color);
   color: var(--text-color);
-  font-family: "Inter", sans-serif;
-  font-style: normal;
+  font-family: "Gudea", sans-serif;
 }
 
-@font-face {
-  font-family: "HandmadeAlphabet";
-  src: url("../handmade-alphabet.otf") format("opentype");
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
 }
 
 h1 {
   text-align: center;
   margin-block: 2rem;
-  font-size: 5vw;
+  font-size: 4vw;
+  font-family: "Handmade Alphabet";
+  font-weight: normal;
+}
+
+h2 {
+  font-family: "Handmade Alphabet";
+  font-weight: normal;
+}
+
+h3 {
+  font-weight: normal;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--text-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #b9b9b9;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-color);
 }
