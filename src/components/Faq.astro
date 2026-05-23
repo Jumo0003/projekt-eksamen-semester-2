@@ -1,10 +1,10 @@
-
+<div id="faqSection">
 <h1>Men hvad så hvis?</h1>
 <h3>Stadig i tvivl? Her er svarene på de mest stillede sprøgsmål:</h3>
 
 <ul id="accordion">
 <li>
-    <input type="checkbox" id="faq-first" checked>
+    <input type="checkbox" id="faq-first">
     <label for="faq-first"> <h3>Hvad får jeg ud af at være frivillig?</h3> <span>&#9654</span></label>
     <div class="content">
         <p>Der er mange forskellige grunde til, at folk laver frivilligt arbejde. Her er nogen af dem, vi ofte hører:</p>
@@ -53,9 +53,13 @@
         <p>Udfyld formularen nedenfor, og meld dig ind som friviillig hos Røde Kors</p>
     </div></li>
 </ul>
-
+</div>
 
 <style>
+    #faqSection{
+margin-bottom: 5rem;
+    }
+
     #accordion{
         margin: auto;
         width: 50%
@@ -66,6 +70,10 @@
         #accordion{
             width: 90%;
         }
+
+          #faqSection{
+margin-bottom: 2rem;
+    }
     }
 
     /* Kun top-level <li> i accordion skal ikke have bullets.
@@ -91,6 +99,7 @@
             font-size: 22px;
             color: var(--secondary-accentcolor);
         }
+
         #accordion li label span:hover{
             color: var(--tertiary-accentcolor);
         }

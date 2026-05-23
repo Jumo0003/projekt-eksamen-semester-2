@@ -38,6 +38,7 @@ const data = await fetch(url, options)
 
 console.log(data);
 ---
+<div id="aktiviteterSection">
 <h1>Hvad kan jeg lave?</h1>
 <ul id="accordion">
     <li>
@@ -45,7 +46,7 @@ console.log(data);
         <label for="first"><h2>Røde Kors</h2><span>&#9654</span></label>
        <div class="content">
                            <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="1">
-                        <Image src={butiksfrivillig} alt="aktivitet"/>
+                        <Image src={butiksfrivillig} alt="aktivitet" id="1"/>
                         <div class="boxTitle">
                             <h3>Butiksfrivillig</h3>
                         </div>
@@ -165,6 +166,8 @@ console.log(data);
 </ul>
 
 <AktivitetPopover aktiviteter={data} />
+</div>
+
 
 <script type="application/json" id="aktiviteter-data" set:html={JSON.stringify(data)}></script>
 
@@ -273,6 +276,10 @@ console.log(data);
 button{
     background: none;
     border: none;
+}
+
+#aktiviteterSection{
+  margin-bottom: 5rem;
 }
 
 #accordion{ 
@@ -396,6 +403,10 @@ max-height: 400px; /*du siger at den maksimale højde på hver content skal vær
 /******Aktiviteter popover *****/
 #aktivitetPopover{
     display: block;
+}
+
+#aktiviteterSection{
+  margin-bottom: 2rem;
 }
 }
 

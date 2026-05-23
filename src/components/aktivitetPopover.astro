@@ -18,7 +18,7 @@ const aktivitet = {
 
 <article popover id="aktivitetPopover">
 <div>
-<img src={aktivitet.billede} alt="billede af aktiviteten"/>
+<img src={aktivitet.billede} alt="billede af aktiviteten" class="aktivitetImg"/>
 </div>
 
 <div class="slideindhold">
@@ -230,10 +230,11 @@ body:has(#aktivitetPopover:popover-open) {
         padding: 10px;
     }
 
-#aktivitetPopover img{
+.aktivitetImg{
     aspect-ratio: 16/9;
     object-fit: cover;
 }
+
 
 #aktivitetPopover .slideindhold{
         overflow-y: auto; /* Add this */
