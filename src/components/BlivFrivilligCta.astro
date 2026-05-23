@@ -1,16 +1,33 @@
-<a class="ctaknap">
-  <p>Bliv frivillig</p>
+<div class="ctaBox">
+<a href="#formSection">
+  BLIV FRIVILLIG
 </a>
+</div>
+
 
 <style>
-  .ctaknap {
+.ctaBox{
+  margin-block: 5rem;
+width: 100%;
+justify-content: center;
+}
+
+a {
     background-color: var(--tertiary-accentcolor);
     color: var(--text-color);
     border: none;
     border-radius: 1rem;
     padding: 1rem 2rem; 
-    font-size: 2rem;
     font-weight: normal;
     cursor: pointer;
+  margin: auto;
+  width: 400px;
+  text-decoration: none;
+  }
+
+  @media screen and (max-width: 600px){
+    .ctaBox{
+  margin-block: 2rem;
+}
   }
 </style>
