@@ -20,6 +20,23 @@ import lejrleder from "../assets/lejrleder.png";
 import asylcenter from "../assets/asylcenter.png";
 
 import asylcenter2 from "../assets/supabase/asylcenter.webp";
+import Profilbillede from "../assets/profilbillede.png";
+import AktivitetPopover from "./aktivitetPopover.astro";
+
+
+const url = `${import.meta.env.PUBLIC_SUPABASE_URL}/rest/v1/Aktiviteter?select=*`;
+const apiKey = import.meta.env.PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+
+const options = {
+  headers: {
+    apikey: apiKey,
+  },
+};
+
+const data = await fetch(url, options)
+  .then((res) => res.json());
+
+console.log(data);
 ---
 <h1>Hvad kan jeg lave?</h1>
 <ul id="accordion">
@@ -27,56 +44,56 @@ import asylcenter2 from "../assets/supabase/asylcenter.webp";
         <input type="checkbox" id="first" checked>
         <label for="first"><h2>Røde Kors</h2><span>&#9654</span></label>
        <div class="content">
-                           <button popovertarget="aktivitetPopover" class="aktivitet">
+                           <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="1">
                         <Image src={butiksfrivillig} alt="aktivitet"/>
                         <div class="boxTitle">
                             <h3>Butiksfrivillig</h3>
                         </div>
                     </button>
 
-                    <button popovertarget="aktivitetPopover" class="aktivitet">
+                    <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="2">
                         <Image src={parathjælper} alt="aktivitet"/>
                         <div class="boxTitle">
                             <h3>Parathjælper</h3>
                         </div>
                     </button>
 
-                    <button popovertarget="aktivitetPopover" class="aktivitet">
+                    <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="3">
                         <Image src={kommunikation} alt="aktivitet"/>
                         <div class="boxTitle">
                             <h3>Kommunikation</h3>
                         </div>
                     </button>
 
-                    <button popovertarget="aktivitetPopover" class="aktivitet">
+                    <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="4">
                         <Image src={sortering} alt="aktivitet"/>
                         <div class="boxTitle">
                             <h3>Sortering</h3>
                         </div>
                     </button>
 
-                    <button popovertarget="aktivitetPopover" class="aktivitet">
+                    <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="5">
                         <Image src={ithjalp} alt="aktivitet"/>
                         <div class="boxTitle">
                             <h3>It-hjælp</h3>
                         </div>
                     </button>
 
-                    <button popovertarget="aktivitetPopover" class="aktivitet">
+                    <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="6">
                         <Image src={samarit} alt="aktivitet"/>
                         <div class="boxTitle">
                             <h3>Samarit</h3>
                         </div>
                     </button>
 
-                    <button popovertarget="aktivitetPopover" class="aktivitet">
+                    <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="7">
                         <Image src={indsamler} alt="aktivitet"/>
                         <div class="boxTitle">
                             <h3>Indsamler</h3>
                         </div>
                     </button>
 
-                    <button popovertarget="aktivitetPopover" class="aktivitet">
+                    <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="8">
                         <Image src={besogsven} alt="aktivitet"/>
                         <div class="boxTitle">
                             <h3>Besøgsven</h3>
@@ -88,56 +105,56 @@ import asylcenter2 from "../assets/supabase/asylcenter.webp";
         <input type="checkbox" id="second">
         <label for="second"><h2>Ungdommens Røde Kors</h2><span>&#9654</span></label>
        <div class="content">
-     <button popovertarget="aktivitetPopover" class="aktivitet">
+     <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="9">
                         <Image src={lektiehjalper} alt="aktivitet"/>
                         <div class="boxTitle">
                             <h3>Lektiehjælper</h3>
                         </div>
                     </button>
 
-                    <button popovertarget="aktivitetPopover" class="aktivitet">
+                    <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="10">
                         <Image src={klubfrivillig} alt="aktivitet"/>
                         <div class="boxTitle">
                             <h3>Klubfrivillig</h3>
                         </div>
                     </button>
 
-                     <button popovertarget="aktivitetPopover" class="aktivitet">
+                     <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="11">
                         <Image src={ungpalinje} alt="aktivitet"/>
                         <div class="boxTitle">
                             <h3>Ung På Linje</h3>
                         </div>
                     </button>
 
-                      <button popovertarget="aktivitetPopover" class="aktivitet">
+                      <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="12">
                         <Image src={mentor} alt="aktivitet"/>
                         <div class="boxTitle">
                             <h3>Mentor</h3>
                         </div>
                     </button>
 
-                     <button popovertarget="aktivitetPopover" class="aktivitet">
+                     <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="16">
                         <Image src={butiksfrivillig} alt="aktivitet"/>
                         <div class="boxTitle">
                             <h3>Ungdomsbutik</h3>
                         </div>
                     </button>
 
-                     <button popovertarget="aktivitetPopover" class="aktivitet">
+                     <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="13">
                         <Image src={hospitalscafe} alt="aktivitet"/>
                         <div class="boxTitle">
                             <h3>Hospitalscafe</h3>
                         </div>
                     </button>
 
-                     <button popovertarget="aktivitetPopover" class="aktivitet">
+                     <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="14">
                         <Image src={lejrleder} alt="aktivitet"/>
                         <div class="boxTitle">
                             <h3>Lejrleder</h3>
                         </div>
                     </button>
 
-                    <button popovertarget="aktivitetPopover" class="aktivitet">
+                    <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="15">
                         <Image src={asylcenter} alt="aktivitet"/>
                         <div class="boxTitle">
                             <h3>Asylcenter</h3>
@@ -147,45 +164,112 @@ import asylcenter2 from "../assets/supabase/asylcenter.webp";
     </li>
 </ul>
 
-<article id="aktivitetPopover">
-<div>
-<Image src={asylcenter2} alt="billede af aktiviteten"/>
-</div>
-<div>
-<ul id="accordion">
-    <li>
-        <input type="checkbox" id="first" checked>
-        <label for="first">Hvad skal jeg lave?<span>&#9654</span></label>
-       <div class="content">
-    Som frivillig på et asylcenter er der mange forskellige aktiviteter. Du har måske mest lyst til at lave gymnastik med børnene eller hjælpe i legestuen. Det kan også være, at du vil bruge din tid i syklubben eller på cykelværkstedet, hvor man er sammen om at lave noget praktisk. Eller måske har du en idé til et projekt, som du tror can være sjovt for asylansøgere? Du kan også blive repræsentant for et barn eller en ung, der er flygtet alene. Det vigtigste er, at du engagerer dig for en tid, så asylansøgerne oplever kontinuitet og en vedholdende relation. 
-       </div>
-    </li>
-      <li>
-        <input type="checkbox" id="second">
-        <label for="second">Hvad får jeg ud af det?<span>&#9654</span></label>
-       <div class="content">
-Asylansøgere ønsker at mødes helt normalt med andre mennesker og få mere at vide om det land de er kommet til. Mange har mistet både familie og venner, men du kan være den positive relation, som minder dem om deres evner og håb for fremtiden. Dét er en god følelse.       </div>
-    </li>
-        <li>
-        <input type="checkbox" id="third">
-        <label for="third">Hvor lang tid skal jeg bruge?<span>&#9654</span></label>
-       <div class="content">
-Afhængigt af hvilken opgave du tager på asylcenteret, kan det være alt fra få timer om ugen, til flere timer dagligt.</div>
-    </li>
-        <li>
-        <input type="checkbox" id="fourth">
-        <label for="fourth">Hvordan kommer jeg i gang?<span>&#9654</span></label>
-       <div class="content">
-Asylansøgerne mangler måske en som dig? Tryk på den gule knap, hvis du er interesseret!</div>
-    </li>
-</ul>
+<AktivitetPopover aktiviteter={data} />
 
-<button popovertarget="aktivitetPopover">x</button>
+<script type="application/json" id="aktiviteter-data" set:html={JSON.stringify(data)}></script>
 
-</div>
-</article>
+<script>
+  // Define the interface for your activity data
+  interface Aktivitet {
+    id: number;
+    titel: string;
+    billede: string;
+    aktivitet: string;
+    udbytte: string;
+    tid: string;
+      start: string;
+  }
+
+  // Pass the fetched data to the client-side script
+  let aktiviteter: Aktivitet[] = [];
+  
+  try {
+    const dataElement: HTMLElement | null = document.getElementById('aktiviteter-data');
+    if (dataElement && dataElement.textContent) {
+      aktiviteter = JSON.parse(dataElement.textContent) as Aktivitet[];
+    }
+  } catch (error: unknown) {
+    console.error('Failed to parse aktiviteter data:', error);
+    aktiviteter = [];
+  }
+  
+  document.addEventListener('DOMContentLoaded', function(): void {
+    const buttons: NodeListOf<Element> = document.querySelectorAll('.aktivitet[data-activity-id]');
+    
+    buttons.forEach((button: Element) => {
+      button.addEventListener('click', function(this: HTMLElement): void {
+        const activityIdAttr: string | null = this.getAttribute('data-activity-id');
+        
+        if (!activityIdAttr) {
+          console.warn('No activity ID found on button');
+          return;
+        }
+        
+        const activityId: number = parseInt(activityIdAttr, 10);
+        
+        if (isNaN(activityId)) {
+          console.warn('Invalid activity ID:', activityIdAttr);
+          return;
+        }
+        
+        const activity: Aktivitet | undefined = aktiviteter.find((a: Aktivitet) => a && a.id === activityId);
+        
+        if (activity) {
+          updatePopoverContent(activity);
+        } else {
+          console.warn('Activity not found with ID:', activityId);
+        }
+      });
+    });
+  });
+  
+  function updatePopoverContent(aktivitet: Aktivitet): void {
+    // Validate input
+    if (!aktivitet) {
+      console.error('No activity data provided to updatePopoverContent');
+      return;
+    }
+    
+    // Update the image
+    const popoverImg: HTMLImageElement | null = document.querySelector('#aktivitetPopover img');
+    if (popoverImg) {
+      popoverImg.src = aktivitet.billede || '';
+      popoverImg.alt = `billede af ${aktivitet.titel || 'aktivitet'}`;
+    }
+    
+    // Update the title
+    const titleElement: HTMLParagraphElement | null = document.querySelector('#aktivitetPopover .profil p');
+    if (titleElement) {
+      titleElement.textContent = `rkf.unge • ${aktivitet.titel || 'Untitled'}`;
+    }
+    
+    // Update the content sections
+    const contentElements: NodeListOf<Element> = document.querySelectorAll('#aktivitetPopover .pop-content');
+    if (contentElements.length >= 3) {
+      const content1: HTMLElement | null = contentElements[0] as HTMLElement;
+      const content2: HTMLElement | null = contentElements[1] as HTMLElement;
+      const content3: HTMLElement | null = contentElements[2] as HTMLElement;
+           const content4: HTMLElement | null = contentElements[3] as HTMLElement;
+      
+      if (content1) {
+        content1.textContent = aktivitet.aktivitet || 'Information not available';
+      }
+      if (content2) {
+        content2.textContent = aktivitet.udbytte || 'Information not available';
+      }
+      if (content3) {
+        content3.textContent = aktivitet.tid || 'Information not available';
+      }
+       if (content4) {
+        content4.textContent = aktivitet.start || 'Information not available';
+      }
+    }
+  }
+</script>
 
 <style>
+
+/*****Store accordion*****/
 button{
     background: none;
     border: none;
@@ -231,7 +315,8 @@ button{
 
 #accordion input[type="checkbox"]:checked + label span{
     transform: rotate(90deg); /*du siger at pilen i hver label skal være roteret 90 grader, når den tilhørende checkbox er markeret, så den peger nedad*/
-}
+   color: var(--tertiary-accentcolor);
+  }
 
 #accordion .content{
     padding: 0 10px; /*du siger at der skal være 10px mellem indholdet og kanten*/
@@ -249,7 +334,7 @@ max-height: 400px; /*du siger at den maksimale højde på hver content skal vær
 
 .content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 0.5rem;
   width: 100%;
   padding: 1rem;
@@ -289,9 +374,13 @@ max-height: 400px; /*du siger at den maksimale højde på hver content skal vær
   background-color: var(--tertiary-accentcolor);
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
+  #accordion{
+        width: 90%;
+    }
+
   .content {
-    grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 8px;
   }
 
@@ -303,6 +392,11 @@ max-height: 400px; /*du siger at den maksimale højde på hver content skal vær
   #accordion li label span {
     font-size: 24px;
   }
+
+/******Aktiviteter popover *****/
+#aktivitetPopover{
+    display: block;
+}
 }
 
 /* width */

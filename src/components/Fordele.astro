@@ -16,23 +16,23 @@ import FremtidSlide2 from "../assets/fremtid_slide2.png";
 import FaellesskabSlide1 from "../assets/faellesskab_slide1.png";
 import FaellesskabSlide2 from "../assets/faellesskab_slide2.png";
 ---
-
+<div id="fordeleSection">
 <h1>Hvad får jeg ud af det?</h1>
 
 <div class="highlights">
   <button popovertarget="forskelPopover">
     <Image class="highlight" src={Forskel} alt="forskel highlight" />
-    <p>Forskel</p>
+    <h3>Forskel</h3>
   </button>
 
   <button popovertarget="fremtidPopover">
     <Image class="highlight" src={Fremtid} alt="fremtid highlight" />
-    <p>Fremtid</p>
+    <h3>Fremtid</h3>
   </button>
 
   <button popovertarget="faellesskabPopover">
     <Image class="highlight" src={Faellesskab} alt="Fællesskab highlight" />
-    <p>Fællesskab</p>
+    <h3>Fællesskab</h3>
   </button>
 </div>
 
@@ -42,6 +42,7 @@ import FaellesskabSlide2 from "../assets/faellesskab_slide2.png";
 
     <div class="slideindhold">
       <p><Image class="profilbillede" src={Profilbillede} alt="Røde Kors Frivillige SoMe profilbillede"/><b>Forskel</b> lige nu</p>
+
       <div class="slideshow-container">
         <div class="mySlides fade">
           <Image
@@ -73,13 +74,6 @@ import FaellesskabSlide2 from "../assets/faellesskab_slide2.png";
       </div>
       <br />
 
-      <!-- The dots/circles -->
-      <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1, this)"></span>
-        <span class="dot" onclick="currentSlide(2, this)"></span>
-        <span class="dot" onclick="currentSlide(3, this)"></span>
-      </div>
-
       <Image
         src={ForskelSlide1}
         alt="Statistik af hvor mange røde kors hjalp i 2025"
@@ -107,7 +101,7 @@ import FaellesskabSlide2 from "../assets/faellesskab_slide2.png";
 
         <!-- Next and previous buttons -->
         <a class="prev" onclick="plusSlides(-1, this)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <a class="next" onclick="plusSlides(1, this)">&#10095;</a>
       </div>
       <br />
 
@@ -141,6 +135,7 @@ import FaellesskabSlide2 from "../assets/faellesskab_slide2.png";
       <button popovertarget="faellesskabPopover" class="close-button">&#128937</button>
     </div>
   </div>
+</div>
 
 
 <style>
@@ -148,6 +143,10 @@ import FaellesskabSlide2 from "../assets/faellesskab_slide2.png";
 
   * {
     box-sizing: border-box;
+  }
+
+  #fordeleSection{
+    margin-bottom: 5rem;
   }
 
   /* Slideshow container */
@@ -222,11 +221,13 @@ width: 100%;
   height: 30px;
 }
 
-p{
+h3{
   display: flex;
   gap: 10px;
   align-items: center;
+  font-weight: 200;
 }
+
   .highlights {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -234,21 +235,18 @@ p{
     width: 60%;
     gap: 3rem;
     padding-bottom: 1rem;
+justify-content: center;
   }
 
-  [popover] {
-    display: none;
-    background-color: var(--primary-accentcolor);
+  [popover]:popover-open{
+     display: grid;
+ background-color: var(--primary-accentcolor);
     padding: 1.2rem;
     grid-template-columns: 1fr 2fr 1fr;
     gap: 1.5rem;
     border: none;
     height: 100%;
     width: 100%;
-  }
-
-  [popover].open {
-    display: grid;
   }
 
   [popover] p {
@@ -262,71 +260,66 @@ p{
     font-size: 3rem;
     font-weight: bold;
   }
+
+  @media screen and (max-width: 600px){
+  #fordeleSection{
+    margin-bottom: 2rem;
+  }
+
+    .highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: auto;
+    width: 90%;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  }
 </style>
 
 <script is:inline>
-  document.addEventListener("click", (event) => {
-    const trigger = event.target.closest("[popovertarget]");
-    if (trigger) {
-      event.preventDefault();
-      const id = trigger.getAttribute("popovertarget");
-      const popover = document.getElementById(id);
-      if (!popover) return;
+// Store slide indices for each slideshow
+let slideIndices = {};
 
-      const isOpen = popover.classList.toggle("open");
-      document.querySelectorAll("[popover].open").forEach((other) => {
-        if (other !== popover) {
-          other.classList.remove("open");
-        }
-      });
+// Initialize slideshows when popovers open
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize each slideshow
+  initializeSlideshow('forskelPopover');
+  initializeSlideshow('fremtidPopover');
+  initializeSlideshow('faellesskabPopover');
+});
 
-      if (!isOpen) {
-        popover.classList.remove("open");
-      }
+function initializeSlideshow(popoverId) {
+  slideIndices[popoverId] = 1;
+  showSlides(1, popoverId);
+}
 
-      return;
-    }
-
-    if (!event.target.closest("[popover]")) {
-      document.querySelectorAll("[popover].open").forEach((openPopover) => {
-        openPopover.classList.remove("open");
-      });
-    }
-  });
-</script>
-
-<script is:inline>
-  let slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides((slideIndex += n));
+// Next/previous controls - updated to work with specific slideshow
+function plusSlides(n, element) {
+  // Find which popover this button belongs to
+  const popover = element.closest('[popover]');
+  const popoverId = popover.id;
+  
+  slideIndices[popoverId] += n;
+  showSlides(slideIndices[popoverId], popoverId);
 }
 
 // Thumbnail image controls
-function currentSlide(n) {
-  showSlides((slideIndex = n));
+function currentSlide(n, popoverId) {
+  slideIndices[popoverId] = n;
+  showSlides(slideIndices[popoverId], popoverId);
 }
 
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
+function showSlides(n, popoverId) {
+  const popover = document.getElementById(popoverId);
+  if (!popover) return;
+  
+  const slides = popover.getElementsByClassName("mySlides");
+  const dots = popover.getElementsByClassName("dot");
+  
   if (n > slides.length) {
-    slideIndex = 1;
+    slideIndices[popoverId] = 1;
   }
-  if (n < 1) {
-    slideIndex = slides.length;
   }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
-}
-
 </script>
