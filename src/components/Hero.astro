@@ -33,6 +33,7 @@ import menu from "../assets/menuIkon.png";
   position: relative;
   width: 95%;
   margin: 3rem auto;
+  margin-bottom: 5rem;
 }
 
   video {
@@ -43,8 +44,8 @@ import menu from "../assets/menuIkon.png";
   }
 
   .logo{
-    padding-top: 2rem;
-    width: 300px;
+    padding-top: 4rem;
+    width: 400px;
     position: absolute;
     top: 0;
     left: 12%;
@@ -79,39 +80,27 @@ a{
   top: 0;
   right: 50px;
   height: auto;
-  width: 100px;
+  width: 120px;
   font-size:100%;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   transition: 0.2s;
 }
 
-span:hover{
-    color: var(--tertiary-accentcolor);
-    transform: rotate(180deg);
-}
 
 /* Dropdown content */
 .dropdown-content {
   display: none;
   position: fixed;
   background-color: var(--tertiary-accentcolor);
-  min-width: 120px;
+  min-width: 200px;
 text-align: right;
   top: 50px;
   right: 50px;
   border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-}
-
-.dropdown-content:hover .dropbtn{
-  border-bottom-right-radius: 0;
-}
-
-.dropbtn:hover{
-  border-bottom-left-radius:0;
-  border-bottom-right-radius: 0;
+  z-index: 10;
 }
 
 /* Links inside dropdown content */
@@ -137,5 +126,34 @@ text-align: right;
 /* Change background color of dropdown button on hover */
 .dropdown:hover .dropbtn {
   background-color: var(--primary-accentcolor);
+    border-bottom-left-radius:0;
+  border-bottom-right-radius: 0;
+}
+
+.dropdown:hover span{
+ color: var(--tertiary-accentcolor);
+    transform: rotate(180deg);
+}
+
+@media screen and (max-width: 600px){
+  .dropdown-content {
+  min-width: 100px;
+  z-index: 10;
+}
+
+.dropbtn {
+  width: 80px;
+}
+
+.logo{
+    padding-top: 1rem;
+    width: 200px;
+    left: 20%;
+  }
+
+  #heroSection {
+  margin: 2rem auto;
+  margin-bottom: 2rem;
+}
 }
 </style>
