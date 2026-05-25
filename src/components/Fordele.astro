@@ -1,0 +1,367 @@
+---
+//@ts-nocheck
+import { Image } from "astro:assets";
+import Forskel from "../assets/forskel.png";
+import Fremtid from "../assets/fremtid.png";
+import Faellesskab from "../assets/faellesskab.png";
+import Profilbillede from "../assets/profilbillede.png";
+
+import ForskelSlide1 from "../assets/forskel_slide1.png";
+import ForskelSlide2 from "../assets/forskel_slide2.png";
+import ForskelSlide3 from "../assets/forskel_slide3.png";
+import ForskelSlide4 from "../assets/forskel_slide4.png";
+
+import FremtidSlide1 from "../assets/fremtid_slide1.png";
+import FremtidSlide2 from "../assets/fremtid_slide2.png";
+import FaellesskabSlide1 from "../assets/faellesskab_slide1.png";
+import FaellesskabSlide2 from "../assets/faellesskab_slide2.png";
+---
+<div id="fordeleSection">
+<h1>Hvad får jeg ud af det?</h1>
+
+<div class="highlights">
+  <button popovertarget="forskelPopover">
+    <Image class="highlight" src={Forskel} alt="forskel highlight" />
+    <h3>Forskel</h3>
+  </button>
+
+  <button popovertarget="fremtidPopover">
+    <Image class="highlight" src={Fremtid} alt="fremtid highlight" />
+    <h3>Fremtid</h3>
+  </button>
+
+  <button popovertarget="faellesskabPopover">
+    <Image class="highlight" src={Faellesskab} alt="Fællesskab highlight" />
+    <h3>Fællesskab</h3>
+  </button>
+</div>
+
+<!-- Popovers -->
+  <div popover id="forskelPopover">
+    <div></div>
+
+    <div class="slideindhold">
+      <h3 class="flex"><Image class="profilbillede" src={Profilbillede} alt="Røde Kors Frivillige SoMe profilbillede"/><b>Forskel</b> lige nu</h3>
+
+      <div class="slideshow-container">
+        <div class="mySlides">
+          <Image
+            src={ForskelSlide1}
+            alt="Statistik hvor mange røde kors hjalp i 2025" class="forskelImg"
+          />
+        </div>
+
+        <div class="mySlides">
+          <Image
+            src={ForskelSlide2}
+            alt="Fordeling hvordan vi bruger pengene" class="forskelImg"
+          />
+        </div>
+
+        <div class="mySlides">
+          <Image src={ForskelSlide3} alt="Oversigt hvor kommer pengene fra" class="forskelImg" />
+        </div>
+
+        <div class="mySlides">
+          <Image src={ForskelSlide4} alt="Oversigt over udgifter" class="forskelImg" />
+        </div>
+
+        
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1, this)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, this)">&#10095;</a>
+      </div>
+
+    </div>
+    <div>
+      <button popovertarget="forskelPopover" class="close-button">&#128937</button>
+    </div>
+  </div>
+
+  <div popover id="fremtidPopover">
+    <div></div>
+
+    <div class="slideindhold">
+      <p class="flex"><Image class="profilbillede" src={Profilbillede} alt="Røde Kors Frivillige SoMe profilbillede"/><b>Fremtid</b> lidt senere</p>
+
+      <div class="slideshow-container">
+        <div class="mySlides">
+          <Image src={FremtidSlide1} alt="Billede af frivilligt" class="forskelImg"/>
+        </div>
+
+        <div class="mySlides">
+         <Image src={FremtidSlide2} alt="Billede af frivilligt" class="forskelImg" />
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1, this)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, this)">&#10095;</a>
+      </div>
+      <br />
+
+    </div>
+    <div>
+      <button popovertarget="fremtidPopover" class="close-button">&#128937</button>
+    </div>
+  </div>
+
+  <div popover id="faellesskabPopover">
+    <div></div>
+    <div class="slideindhold">
+      <p class="flex"><Image class="profilbillede" src={Profilbillede} alt="Røde Kors Frivillige SoMe profilbillede"/><b>Fællesskab</b> altid</p>
+      <div class="slideshow-container">
+        
+        <div class="mySlides">
+          <Image class="forskelImg" src={FaellesskabSlide1} alt="Billede af fællesskab" />
+        </div>
+
+        <div class="mySlides">
+          <Image class="forskelImg" src={FaellesskabSlide2} alt="Billede af fællesskab" />
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1, this)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, this)">&#10095;</a>
+      </div>
+      <br />
+
+    </div>
+    <div>
+      <button popovertarget="faellesskabPopover" class="close-button">&#128937</button>
+    </div>
+  </div>
+</div>
+
+
+<script is:inline>
+// Store slide indices for each slideshow
+let slideIndices = {};
+
+// Initialize slideshows when popovers open
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize each slideshow
+  initializeSlideshow('forskelPopover');
+  initializeSlideshow('fremtidPopover');
+  initializeSlideshow('faellesskabPopover');
+});
+
+function initializeSlideshow(popoverId) {
+  slideIndices[popoverId] = 1;
+  showSlides(1, popoverId);
+}
+
+// Next/previous controls - updated to work with specific slideshow
+function plusSlides(n, element) {
+  // Find which popover this button belongs to
+  const popover = element.closest('[popover]');
+  const popoverId = popover.id;
+  
+  slideIndices[popoverId] += n;
+  showSlides(slideIndices[popoverId], popoverId);
+}
+
+// Thumbnail image controls
+function currentSlide(n, popoverId) {
+  slideIndices[popoverId] = n;
+  showSlides(slideIndices[popoverId], popoverId);
+}
+
+function showSlides(n, popoverId) {
+  const popover = document.getElementById(popoverId);
+  if (!popover) return;
+  
+  const slides = popover.getElementsByClassName("mySlides");
+  const dots = popover.getElementsByClassName("dot");
+  
+  if (slides.length === 0) return;
+  
+  // Wrap around if needed
+  if (n > slides.length) {
+    slideIndices[popoverId] = 1;
+  }
+  if (n < 1) {
+    slideIndices[popoverId] = slides.length;
+  }
+  
+  // Hide all slides in this specific popover
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  
+  // Remove active class from all dots in this popover
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  
+  // Show the current slide
+  slides[slideIndices[popoverId] - 1].style.display = "block";
+  
+  // Activate current dot if dots exist
+  if (dots.length > 0) {
+    dots[slideIndices[popoverId] - 1].className += " active";
+  }
+}
+</script>
+
+
+
+<style>
+  /***STYLE SLIDESHOW***/
+
+  * {
+    box-sizing: border-box;
+  }
+
+  #fordeleSection{
+    margin-bottom: 5rem;
+  }
+
+  /* Slideshow container */
+  .slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+button {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+h3{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  font-weight: 200;
+  margin: 0; /* Remove default margin that might cause misalignment */
+}
+
+  .highlight {
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    border: solid 6px var(--primary-accentcolor);
+    padding: 5px;
+    transition: border 0.3s ease;
+  }
+
+    .highlight:hover{
+    border: solid 6px var(--tertiary-accentcolor);
+  }
+
+  .slideindhold {
+    background-color: #f4afa3;
+    border-radius: 1rem;
+    padding: 1rem;
+height: 90vh;
+width: 100%;
+  }
+
+.forskelImg{
+  width: 50%;
+  justify-self: center;
+  align-items: center;
+}
+
+.profilbillede{
+  width:auto;
+  height: 30px;
+}
+
+  .highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: auto;
+    width: 60%;
+    gap: 3rem;
+    padding-bottom: 1rem;
+justify-content: center;
+  }
+
+  [popover]:popover-open{
+     display: grid;
+ background-color: var(--primary-accentcolor);
+    padding: 1.2rem;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 1.5rem;
+    border: none;
+    height: 100%;
+    width: 100%;
+  }
+
+  .close-button {
+    color: var(--alternate-text-color);
+    font-size: 3rem;
+    font-weight: bold;
+  }
+
+    .flex{
+    display: flex;
+    gap: 10px;
+    text-align: left;
+    color: var(--alternate-text-color);
+  justify-content: left;
+ margin-bottom: 2rem;
+  }
+
+  @media screen and (max-width: 600px){
+  #fordeleSection{
+    margin-bottom: 2rem;
+  }
+
+    .highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: auto;
+    width: 90%;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+
+    [popover]:popover-open{
+     display: flex;
+ background-color: var(--primary-accentcolor);
+    padding: 1.2rem;
+    gap: 1.5rem;
+    border: none;
+    height: 100%;
+    width: 100%;
+  }
+
+   .close-button {
+    font-size: 1rem;
+  }
+  }
+</style>

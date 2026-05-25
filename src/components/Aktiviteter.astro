@@ -1,0 +1,428 @@
+---
+//@ts-nocheck
+import AktivitetPopover from "./aktivitetPopover.astro";
+import { Image } from "astro:assets";
+import butiksfrivillig from "../assets/butiksfrivillig.png";
+import parathjælper from "../assets/parathjalper_besogsven.png";
+import kommunikation from "../assets/kommunikation.png";
+import sortering from "../assets/sortering.png";
+import ithjalp from "../assets/ithjalp.png";
+import samarit from "../assets/samarit.png";
+import indsamler from "../assets/indsamler.png";
+import besogsven from "../assets/parathjalper_besogsven.png";
+
+import lektiehjalper from "../assets/lektiehjalper.png";
+import klubfrivillig from "../assets/klubfrivillig.png";
+import ungpalinje from "../assets/ungpalinje.png";
+import mentor from "../assets/mentor.png";
+import hospitalscafe from "../assets/hospitalscafe.png";
+import lejrleder from "../assets/lejrleder.png";
+import asylcenter from "../assets/asylcenter.png";
+
+import asylcenter2 from "../assets/supabase/asylcenter.webp";
+import Profilbillede from "../assets/profilbillede.png";
+import AktivitetPopover from "./aktivitetPopover.astro";
+
+
+const url = `${import.meta.env.PUBLIC_SUPABASE_URL}/rest/v1/Aktiviteter?select=*`;
+const apiKey = import.meta.env.PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+
+const options = {
+  headers: {
+    apikey: apiKey,
+  },
+};
+
+const data = await fetch(url, options)
+  .then((res) => res.json());
+
+console.log(data);
+---
+<div id="aktiviteterSection">
+<h1>Hvad kan jeg lave?</h1>
+<ul id="accordion">
+    <li>
+        <input type="checkbox" id="first" checked>
+        <label for="first"><h2>Røde Kors</h2><span>&#9654</span></label>
+       <div class="content">
+                           <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="1">
+                        <Image src={butiksfrivillig} alt="aktivitet" id="1"/>
+                        <div class="boxTitle">
+                            <h3>Butiksfrivillig</h3>
+                        </div>
+                    </button>
+
+                    <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="2">
+                        <Image src={parathjælper} alt="aktivitet"/>
+                        <div class="boxTitle">
+                            <h3>Parathjælper</h3>
+                        </div>
+                    </button>
+
+                    <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="3">
+                        <Image src={kommunikation} alt="aktivitet"/>
+                        <div class="boxTitle">
+                            <h3>Kommunikation</h3>
+                        </div>
+                    </button>
+
+                    <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="4">
+                        <Image src={sortering} alt="aktivitet"/>
+                        <div class="boxTitle">
+                            <h3>Sortering</h3>
+                        </div>
+                    </button>
+
+                    <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="5">
+                        <Image src={ithjalp} alt="aktivitet"/>
+                        <div class="boxTitle">
+                            <h3>It-hjælp</h3>
+                        </div>
+                    </button>
+
+                    <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="6">
+                        <Image src={samarit} alt="aktivitet"/>
+                        <div class="boxTitle">
+                            <h3>Samarit</h3>
+                        </div>
+                    </button>
+
+                    <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="7">
+                        <Image src={indsamler} alt="aktivitet"/>
+                        <div class="boxTitle">
+                            <h3>Indsamler</h3>
+                        </div>
+                    </button>
+
+                    <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="8">
+                        <Image src={besogsven} alt="aktivitet"/>
+                        <div class="boxTitle">
+                            <h3>Besøgsven</h3>
+                        </div>
+                    </button>
+       </div>
+    </li>
+      <li>
+        <input type="checkbox" id="second">
+        <label for="second"><h2>Ungdommens Røde Kors</h2><span>&#9654</span></label>
+       <div class="content">
+     <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="9">
+                        <Image src={lektiehjalper} alt="aktivitet"/>
+                        <div class="boxTitle">
+                            <h3>Lektiehjælper</h3>
+                        </div>
+                    </button>
+
+                    <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="10">
+                        <Image src={klubfrivillig} alt="aktivitet"/>
+                        <div class="boxTitle">
+                            <h3>Klubfrivillig</h3>
+                        </div>
+                    </button>
+
+                     <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="11">
+                        <Image src={ungpalinje} alt="aktivitet"/>
+                        <div class="boxTitle">
+                            <h3>Ung På Linje</h3>
+                        </div>
+                    </button>
+
+                      <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="12">
+                        <Image src={mentor} alt="aktivitet"/>
+                        <div class="boxTitle">
+                            <h3>Mentor</h3>
+                        </div>
+                    </button>
+
+                     <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="16">
+                        <Image src={butiksfrivillig} alt="aktivitet"/>
+                        <div class="boxTitle">
+                            <h3>Ungdomsbutik</h3>
+                        </div>
+                    </button>
+
+                     <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="13">
+                        <Image src={hospitalscafe} alt="aktivitet"/>
+                        <div class="boxTitle">
+                            <h3>Hospitalscafe</h3>
+                        </div>
+                    </button>
+
+                     <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="14">
+                        <Image src={lejrleder} alt="aktivitet"/>
+                        <div class="boxTitle">
+                            <h3>Lejrleder</h3>
+                        </div>
+                    </button>
+
+                    <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="15">
+                        <Image src={asylcenter} alt="aktivitet"/>
+                        <div class="boxTitle">
+                            <h3>Asylcenter</h3>
+                        </div>
+                    </button>
+       </div>
+    </li>
+</ul>
+
+<AktivitetPopover aktiviteter={data} />
+</div>
+
+
+<script type="application/json" id="aktiviteter-data" set:html={JSON.stringify(data)}></script>
+
+<script>
+  // Define the interface for your activity data
+  interface Aktivitet {
+    id: number;
+    titel: string;
+    billede: string;
+    aktivitet: string;
+    udbytte: string;
+    tid: string;
+      start: string;
+  }
+
+  // Pass the fetched data to the client-side script
+  let aktiviteter: Aktivitet[] = [];
+  
+  try {
+    const dataElement: HTMLElement | null = document.getElementById('aktiviteter-data');
+    if (dataElement && dataElement.textContent) {
+      aktiviteter = JSON.parse(dataElement.textContent) as Aktivitet[];
+    }
+  } catch (error: unknown) {
+    console.error('Failed to parse aktiviteter data:', error);
+    aktiviteter = [];
+  }
+  
+  document.addEventListener('DOMContentLoaded', function(): void {
+    const buttons: NodeListOf<Element> = document.querySelectorAll('.aktivitet[data-activity-id]');
+    
+    buttons.forEach((button: Element) => {
+      button.addEventListener('click', function(this: HTMLElement): void {
+        const activityIdAttr: string | null = this.getAttribute('data-activity-id');
+        
+        if (!activityIdAttr) {
+          console.warn('No activity ID found on button');
+          return;
+        }
+        
+        const activityId: number = parseInt(activityIdAttr, 10);
+        
+        if (isNaN(activityId)) {
+          console.warn('Invalid activity ID:', activityIdAttr);
+          return;
+        }
+        
+        const activity: Aktivitet | undefined = aktiviteter.find((a: Aktivitet) => a && a.id === activityId);
+        
+        if (activity) {
+          updatePopoverContent(activity);
+        } else {
+          console.warn('Activity not found with ID:', activityId);
+        }
+      });
+    });
+  });
+  
+  function updatePopoverContent(aktivitet: Aktivitet): void {
+    // Validate input
+    if (!aktivitet) {
+      console.error('No activity data provided to updatePopoverContent');
+      return;
+    }
+    
+    // Update the image
+    const popoverImg: HTMLImageElement | null = document.querySelector('#aktivitetPopover img');
+    if (popoverImg) {
+      popoverImg.src = aktivitet.billede || '';
+      popoverImg.alt = `billede af ${aktivitet.titel || 'aktivitet'}`;
+    }
+    
+    // Update the title
+    const titleElement: HTMLParagraphElement | null = document.querySelector('#aktivitetPopover .profil p');
+    if (titleElement) {
+      titleElement.textContent = `rkf.unge • ${aktivitet.titel || 'Untitled'}`;
+    }
+    
+    // Update the content sections
+    const contentElements: NodeListOf<Element> = document.querySelectorAll('#aktivitetPopover .pop-content');
+    if (contentElements.length >= 3) {
+      const content1: HTMLElement | null = contentElements[0] as HTMLElement;
+      const content2: HTMLElement | null = contentElements[1] as HTMLElement;
+      const content3: HTMLElement | null = contentElements[2] as HTMLElement;
+           const content4: HTMLElement | null = contentElements[3] as HTMLElement;
+      
+      if (content1) {
+        content1.textContent = aktivitet.aktivitet || 'Information not available';
+      }
+      if (content2) {
+        content2.textContent = aktivitet.udbytte || 'Information not available';
+      }
+      if (content3) {
+        content3.textContent = aktivitet.tid || 'Information not available';
+      }
+       if (content4) {
+        content4.textContent = aktivitet.start || 'Information not available';
+      }
+    }
+  }
+</script>
+
+<style>
+
+/*****Store accordion*****/
+button{
+    background: none;
+    border: none;
+}
+
+#aktiviteterSection{
+  margin-bottom: 5rem;
+}
+
+#accordion{ 
+    margin: auto; /*du siger til hele harmonikaen at den skal være i midten*/
+    width: 60%; /*du siger at den skal være 600px bred*/
+}
+
+#accordion li{
+    list-style: none; /*du fjerner de små prikker ved siden af hver li*/
+    width: 100%; /*du siger at hver li skal være 100% bred, altså 600px*/
+    margin-bottom: 10px; /*du siger at der skal være 10px mellem hver li*/
+  
+}
+
+#accordion li label{
+    padding: 10px; /*du siger at der skal være 10px mellem indholdet og kanten af hver label*/
+    display: flex; /*du siger at indholdet i hver label skal være i en fleksibel boks, så du kan justere det nemt*/
+    align-items: center; /*du siger at indholdet i hver label skal være centreret lodret, så det ser pænt ud*/
+    justify-content: space-between; /*du siger at indholdet i hver label skal være fordelt med plads imellem, så det ser pænt ud*/
+    cursor: pointer; /*du siger at musen skal ændre sig til en hånd, når den er over hver label, så det indikerer at det er klikbart*/
+    font-weight: 500; /*du siger at teksten i hver label skal være lidt tykkere, så det skiller sig ud*/
+    color: var(--text-color); /*du siger at teksten i hver label skal have den farve, der er defineret i variablen --text-color, så det passer til temaet*/
+    background: var(--primary-accentcolor); /*du siger at baggrunden skal være rød*/
+}
+
+#accordion li label span{
+    transform: rotate(0deg); /*du siger at pilen i hver label skal være roteret 0 grader, så den peger til højre*/
+    transition: transform 0.3s ease, color 0.3s ease; /*du siger at ændringen af rotationen og farven på pilen i hver label skal have en overgangseffekt, så det ser glat ud*/
+    font-size: 22px; /*du siger at pilen i hver label skal være 22px stor, så den er tydelig og let at klikke på*/
+    color: var(--secondary-accentcolor); /*du siger at farven på pilen i hver label skal være den farve, der er defineret i variablen --secondary-accentcolor, så det passer til temaet*/
+}
+
+#accordion li label span:hover{
+    color: var(--tertiary-accentcolor); /*du siger at farven på pilen i hver label skal ændre sig til den farve, der er defineret i variablen --tertiary-accentcolor, når musen er over den, så det indikerer at det er klikbart*/
+}
+
+#accordion input[type="checkbox"]{
+    display: none; /*du siger at checkboksene i hver label skal være skjulte, så de ikke vises på siden*/
+}
+
+#accordion input[type="checkbox"]:checked + label span{
+    transform: rotate(90deg); /*du siger at pilen i hver label skal være roteret 90 grader, når den tilhørende checkbox er markeret, så den peger nedad*/
+   color: var(--tertiary-accentcolor);
+  }
+
+#accordion .content{
+    padding: 0 10px; /*du siger at der skal være 10px mellem indholdet og kanten*/
+    line-height: 26px; /*du siger at linjehøjden i hver content skal være 26px, så det er nemt at læse*/
+    max-height: 0; /*du siger at den maksimale højde på hver content skal være 0, så det er skjult som standard*/
+    overflow-y: auto; /*du siger at hvis indholdet i hver content er højere end den maksimale højde, skal der vises en lodret rullebjælke, så det er muligt at se alt indholdet*/
+    transition: max-height 0.5s ease; /*du siger at ændringen af den maksimale højde på hver content skal have en overgangseffekt, så det ser glat ud*/
+}
+
+#accordion input[type="checkbox"]:checked + label + .content{
+max-height: 400px; /*du siger at den maksimale højde på hver content skal være 400px, når den tilhørende checkbox er markeret, så det bliver synligt på siden*/
+}
+
+/********************/
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.5rem;
+  width: 100%;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: var(--background-color);
+}
+
+.aktivitet {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  background: var(--background-color);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.aktivitet .boxTitle {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.boxTitle {
+  background-color: var(--secondary-accentcolor);
+  padding: 1rem;
+  text-align: left;
+}
+
+.aktivitet img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+
+}
+
+.aktivitet:hover .boxTitle {
+  background-color: var(--tertiary-accentcolor);
+}
+
+@media (max-width: 600px) {
+  #accordion{
+        width: 90%;
+    }
+
+  .content {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 8px;
+  }
+
+  #accordion li label {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  #accordion li label span {
+    font-size: 24px;
+  }
+
+/******Aktiviteter popover *****/
+#aktivitetPopover{
+    display: block;
+}
+
+#aktiviteterSection{
+  margin-bottom: 2rem;
+}
+}
+
+/* width */
+li .content::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+li .content::-webkit-scrollbar-track {
+  background: #f1f1f100;
+}
+
+/* Handle */
+li .content::-webkit-scrollbar-thumb {
+  background: #b9b9b9;
+  border-radius: 10px;
+}
+</style>

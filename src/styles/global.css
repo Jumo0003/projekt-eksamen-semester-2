@@ -1,0 +1,104 @@
+/*************** Reset *********************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*************** Vores custom display font ***************/
+
+@font-face {
+  font-family: "Handmade Alphabet";
+  src: url(../assets/handmade-alphabet.regular.otf);
+}
+
+/*************** CSS variabler *********************/
+:root {
+  /* Farvepalette */
+  --background-color: #fff;
+  --text-color: #2b2b2b;
+  --alternate-text-color: #fff;
+  --primary-accentcolor: #d74d40;
+  --secondary-accentcolor: #e8a099;
+  --tertiary-accentcolor: #e1ea7d;
+
+  /*Kopier dem her for at bruge dem i andre filer:
+  var(--background-color);
+  var(--text-color);
+  var(--alternate-text-color);
+  var(--primary-accentcolor);
+  var(--secondary-accentcolor);
+  var(--tertiary-accentcolor);
+*/
+}
+
+/*************** Global styling *********************/
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: "Gudea", sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+/*************** Typografier *********************/
+
+h1 {
+  text-align: center;
+  margin-block: 2rem;
+  font-size: 4vw;
+  font-family: "Handmade Alphabet";
+  font-weight: normal;
+}
+
+h2 {
+  font-family: "Handmade Alphabet";
+  font-weight: normal;
+}
+
+h3 {
+  font-weight: normal;
+}
+
+/*************** Global Scrollbar *********************/
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--text-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #b9b9b9;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-color);
+}
+
+/*************** Global Mobil CSS *********************/
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+}

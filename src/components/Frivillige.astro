@@ -1,0 +1,140 @@
+---
+import {Image} from 'astro:assets';
+import julie from '../assets/julie.png';
+import andreas from '../assets/andreas.png';
+import larina from '../assets/larina.png';
+import profilbillede from '../assets/profilbillede.png';
+---
+<div id="frivilligeSection">
+<h1>Hvad siger andre?</h1>
+
+<div class="wrapper">
+    <article>
+        <Image src={julie} alt="julie" class="img" />
+        <div class="text">
+            <Image src={profilbillede} alt="profilbillede"/>
+        <p><b>julie_fillipsen</b> Jeg elsker genbrug så højt. Jeg begyndte at thrifte da jeg var 14 og har været afhængig lige siden. Jeg har altid ville arbejde med tøj, og det gør jeg også nu. Men jo mere jo bedre, så nu arbejder jeg også frivilligt her i en Røde Kors genbrugsbutik. Det er så hyggeligt!</p>
+   <br>
+        <p>Det er slet ikke så tidskrævende som man skulle tro. Selvom jeg både har studie og et lønnet job, arbejder jeg fast her hver anden søndag og nogle timer om tirsdagen.</p>
+        <br>
+        <p>Timer går hurtigt for der er altid så mange spændende ting at lave og kigge på og søde kunder og kollegaer at tale med.</p> 
+            <br><p><b>#UngFrivillig #RødeKorsFrivillig #RødeKorsGenbrug</b></p></div>
+    </article>
+
+    <article>
+        <Image src={larina} alt="larina" class="img"/>
+        <div class="text">
+            <Image src={profilbillede} alt="profilbillede"/>
+        <p><b>larina_silleberg</b> Jeg har altid haft stor kærlighed til arbejdet med børn og unge. Det at man kan spille en rolle i et barns udvikling både fagligt og socialt er en kæmpe gave!</p>
+<br>
+<p>Derfor er jeg folkeskolevikar på deltid, mens jeg læser til pædagog. Samtidig er jeg også frivillig i en af Røde Kors' lektiecaféer.
+</p>
+<br>
+<p>Her hjælper jeg ikke bare børn med deres lektier. Jeg er den omsorgsfuld voksen-ven som de nogle gange mangler i deres hverdag. Jeg kan ikke beskrive følelsen.</p>
+<br>
+<p>Hvis du vil betyde noget for nogen, vil jeg helt klart anbefale det!</p>
+<br>
+
+<p><b>#UngFrivillig #LektieCafe  #RødeKorsFrivillig #RødeKors</b></p></div>
+    </article>
+
+    <article>
+        <Image src={andreas} alt="andreas" class="img"/>
+        <div class="text">
+            <div><Image src={profilbillede} alt="profilbillede"/></div>
+            
+        <p><b>andreas_odbjerg</b> Jeg synes det er fedt at arbejde frivilligt i Ungdommens Røde Kors. Jeg gør det bare i min fritid, hvor jeg er med til at planlægge alle mulige fede aktiviteter og sådan noget.</p>
+<br>
+<p>Sidste uge lånte vi min skoles idrætshal og havde brætspilshygge. Der kom vildt mange børn, både på min alder og ældre og yngre. </p> 
+<br>
+<p>Mange kom med brætspil, og der var virkelig mange som lærte at spille et spil for første gang. Det var en god følelse, at jeg havde været med til at skabe den oplevelse.</p>
+<br>
+<p><b>#UngFrivillig #URK #KlubFrivillig  #RødeKorsFrivillig #RødeKors</b></p></div>
+    </article>
+
+</div>
+</div>
+
+
+<style>
+    .text{
+        display: grid;
+            grid-template-columns: 1fr 7fr;
+            gap: 10px;
+    }
+
+.wrapper {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 60%;
+    max-width: 1200px;
+    margin: auto;
+    gap: 1rem;
+    padding: 1rem 0;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+}
+
+article{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    width: 600px; 
+    min-width: 600px;
+    flex: 0 0 600px; /* ensure article doesn't shrink below 600px */
+    overflow: hidden;
+    scroll-snap-align: start;
+}
+@media (max-width: 700px){
+    article{
+        grid-template-columns: 1fr;
+        width: 100%;
+        min-width: 100%;
+        flex: 0 0 100%;
+    }
+    .wrapper{
+        width: 90%
+    }
+
+      .img{
+        aspect-ratio: 4/3;
+        object-fit: cover;
+    }
+}
+
+.text{
+    padding: 1rem;
+    background-color: var(--primary-accentcolor);;
+    color: var(--alternate-text-color);
+}
+
+.img{
+    width: 100%;
+    object-fit: cover;
+}
+
+/* width */
+.wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+.wrapper::-webkit-scrollbar-track {
+  background: #f1f1f100;
+}
+
+/* Handle */
+.wrapper::-webkit-scrollbar-thumb {
+  background: #b9b9b9;
+  border-radius: 10px;
+}
+</style>
+
+
+
+
+
+
+
+

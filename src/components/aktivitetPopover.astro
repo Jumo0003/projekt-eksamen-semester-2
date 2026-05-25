@@ -1,0 +1,244 @@
+---
+import { Image } from "astro:assets";
+import Profilbillede from "../assets/profilbillede.png";
+
+const { aktiviteter } = Astro.props;
+
+// Set a default activity or empty state
+const aktivitet = {
+    id: 1,
+      titel: 'Butiksfrivillig',
+  billede: 'Hello',
+  aktivitet: 'Her skal du stå i butik',
+ udbytte: 'Det er fantastisk',
+  tid: 'Meget lidt',
+  start: 'bam'
+}
+---
+
+<article popover id="aktivitetPopover">
+<div>
+<img src={aktivitet.billede} alt="billede af aktiviteten" class="aktivitetImg"/>
+</div>
+
+<div class="slideindhold">
+ <div class="bjalke">
+    <div class="profil">
+ <Image class="bjalkeImg" src={Profilbillede} alt="Røde Kors Frivillige SoMe profilbillede"/>
+ <p>rkf.unge • {aktivitet.titel}</p>
+    </div>
+<button class="lukBtn" popovertarget="aktivitetPopover" popovertargetaction="hide">&#128937</button>
+</div>
+<br>
+<div class="indhold">
+<ul id="accordion">
+    <li>
+        <input type="checkbox" id="pop-first">
+        <label for="pop-first">Hvad skal jeg lave?<span>&#9654</span></label>
+       <div class="content pop-content">
+  {aktivitet.aktivitet}
+       </div>
+    </li>
+      <li>
+        <input type="checkbox" id="pop-second">
+        <label for="pop-second">Hvad får jeg ud af det?<span>&#9654</span></label>
+       <div class="content pop-content">
+          {aktivitet.udbytte}
+       </div>
+    </li>
+        <li>
+        <input type="checkbox" id="pop-third">
+        <label for="pop-third">Hvor lang tid skal jeg bruge?<span>&#9654</span></label>
+       <div class="content pop-content">
+      {aktivitet.tid}</div>
+    </li>
+        <li>
+        <input type="checkbox" id="pop-fourth">
+        <label for="pop-fourth">Hvordan kommer jeg i gang?<span>&#9654</span></label>
+       <div class="content pop-content">
+ {aktivitet.start}</div>
+    </li>
+</ul>
+<br>
+<a href="">BLIV FRIVILLIG</a>
+</div>
+</div>
+
+</article>
+
+<style>
+        
+
+/*****CTA knap ******/
+button{
+    background: none;
+    border: none;
+}
+
+a{
+    background-color: var(--tertiary-accentcolor);
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 4rem;
+    padding-block: 1rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#accordion{ 
+    margin: auto; /*du siger til hele harmonikaen at den skal være i midten*/
+    width: 60%; /*du siger at den skal være 600px bred*/
+}
+
+#accordion li{
+    list-style: none; /*du fjerner de små prikker ved siden af hver li*/
+    width: 100%; /*du siger at hver li skal være 100% bred, altså 600px*/
+    margin-bottom: 10px; /*du siger at der skal være 10px mellem hver li*/
+  
+}
+
+#accordion li label{
+    padding: 10px; /*du siger at der skal være 10px mellem indholdet og kanten af hver label*/
+    display: flex; /*du siger at indholdet i hver label skal være i en fleksibel boks, så du kan justere det nemt*/
+    align-items: center; /*du siger at indholdet i hver label skal være centreret lodret, så det ser pænt ud*/
+    justify-content: space-between; /*du siger at indholdet i hver label skal være fordelt med plads imellem, så det ser pænt ud*/
+    cursor: pointer; /*du siger at musen skal ændre sig til en hånd, når den er over hver label, så det indikerer at det er klikbart*/
+    font-weight: 500; /*du siger at teksten i hver label skal være lidt tykkere, så det skiller sig ud*/
+    color: var(--alternate-text-color); /*du siger at teksten i hver label skal have den farve, der er defineret i variablen --text-color, så det passer til temaet*/
+    background: var(--primary-accentcolor); /*du siger at baggrunden skal være rød*/
+}
+
+#accordion li label span{
+    transform: rotate(0deg); /*du siger at pilen i hver label skal være roteret 0 grader, så den peger til højre*/
+    transition: transform 0.3s ease, color 0.3s ease; /*du siger at ændringen af rotationen og farven på pilen i hver label skal have en overgangseffekt, så det ser glat ud*/
+    font-size: 22px; /*du siger at pilen i hver label skal være 22px stor, så den er tydelig og let at klikke på*/
+    color: var(--secondary-accentcolor); /*du siger at farven på pilen i hver label skal være den farve, der er defineret i variablen --secondary-accentcolor, så det passer til temaet*/
+}
+
+#accordion li label span:hover{
+    color: var(--tertiary-accentcolor); /*du siger at farven på pilen i hver label skal ændre sig til den farve, der er defineret i variablen --tertiary-accentcolor, når musen er over den, så det indikerer at det er klikbart*/
+}
+
+#accordion input[type="checkbox"]{
+    display: none; /*du siger at checkboksene i hver label skal være skjulte, så de ikke vises på siden*/
+}
+
+#accordion input[type="checkbox"]:checked + label span{
+    transform: rotate(90deg); /*du siger at pilen i hver label skal være roteret 90 grader, når den tilhørende checkbox er markeret, så den peger nedad*/
+   color: var(--tertiary-accentcolor);
+}
+
+#accordion .content{
+    padding: 0 10px; /*du siger at der skal være 10px mellem indholdet og kanten*/
+    line-height: 26px; /*du siger at linjehøjden i hver content skal være 26px, så det er nemt at læse*/
+    max-height: 0; /*du siger at den maksimale højde på hver content skal være 0, så det er skjult som standard*/
+    overflow-y: auto; /*du siger at hvis indholdet i hver content er højere end den maksimale højde, skal der vises en lodret rullebjælke, så det er muligt at se alt indholdet*/
+    transition: max-height 0.5s ease; /*du siger at ændringen af den maksimale højde på hver content skal have en overgangseffekt, så det ser glat ud*/
+}
+
+#accordion input[type="checkbox"]:checked + label + .content{
+max-height: 400px; /*du siger at den maksimale højde på hver content skal være 400px, når den tilhørende checkbox er markeret, så det bliver synligt på siden*/
+}
+
+    /* Popover styles */
+body:has(#aktivitetPopover:popover-open) {
+  overflow: hidden;
+  filter: blur(2px);
+}
+
+  #aktivitetPopover:popover-open {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 70%;
+    margin: auto;
+    background: var(--secondary-accentcolor);
+    max-height: 80vh;
+    border: none;
+        z-index: 10;
+        overflow-y: hidden;
+}
+
+   [popover] p {
+    color: var(--alternate-text-color);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+    #aktivitetPopover ul{
+       width: 100%;
+       max-height: 80vh;
+    }
+
+#aktivitetPopover .slideindhold{
+        overflow-y: auto; /* Add this */
+    max-height: 80vh; /* Add this to match the popover height */
+}
+
+    .bjalke{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        background-color: var(--secondary-accentcolor);
+        padding: 1rem;
+        padding-block: 0.5rem;
+        border-bottom:  #d74d4076 solid 2px;
+        font-family: "Handmade Alphabet";
+        font-weight: 100;
+    }
+
+    .bjalkeImg{
+        width: 40px;
+    }
+
+    .profil{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .lukBtn{
+        color: var(--alternate-text-color);
+          font-size: 3rem;
+    font-weight: bold;
+    }
+
+    .indhold{
+        padding: 1rem;
+    }
+
+.pop-content{
+    background: var(--background-color);
+}
+
+.slideindhold{
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
+  #aktivitetPopover:popover-open {
+    grid-template-columns: 1fr;
+    width: 90%;
+    background: var(--secondary-accentcolor);
+    z-index: 10;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+    .bjalke{
+        padding: 10px;
+    }
+
+.aktivitetImg{
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+
+#aktivitetPopover .slideindhold{
+        overflow-y: auto; /* Add this */
+    max-height: 100vh; /* Add this to match the popover height */
+}
+}
+</style>

@@ -1,0 +1,177 @@
+---
+import heroVideo from "/hero_video.mp4";
+import { Image } from "astro:assets";
+import logo from "../assets/rkf_logo_header.png";
+---
+<div id="heroSection">
+<Image class="logo"src={logo} alt="Røde Kors Frivillige Logo" />
+
+<video controls playsinline preload="metadata" aria-label="En video med interviews af unge på Strøget">
+  <source src={heroVideo} type="video/mp4" />
+  Din browser understøtter ikke videoafspilleren.
+</video>
+
+<div class="dropdown">
+  <button class="dropbtn">
+    <span>&#9660</span>
+  </button>
+  <div class="dropdown-content">
+    <a href="#fordeleSection">Fordele</a>
+    <a href="#aktiviteterSection">Aktiviteter</a>
+    <a href="#frivilligeSection">Frivillige</a>
+    <a href="#faqSection">FAQ</a>
+    <a href="#formSection">Bliv frivillig</a>
+    <a href="#footer">Kontakt</a>
+  </div>
+</div>
+
+</div>
+
+<script>
+  const video = document.getElementById('heroVideo') as HTMLVideoElement;
+  if (video) {
+    video.muted = false;
+    video.volume = 1.0;
+  }
+</script>
+
+<!-- <script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const video = document.getElementById('heroVideo');
+    
+    video.muted = false;
+    video.volume = 1.0;
+    
+    // Force unmute on play
+    video.addEventListener('play', () => {
+      video.muted = false;
+      video.volume = 1.0;
+    });
+  });
+</script> -->
+
+<style>
+#heroSection {
+  position: relative;
+  width: 95%;
+  margin: 3rem auto;
+  margin-bottom: 5rem;
+}
+
+  video {
+    display: block;
+    height: auto;
+    width: 100%;
+    border-radius: 30px;
+  }
+
+  .logo{
+    padding-top: 4rem;
+    width: 400px;
+    position: absolute;
+    top: 0;
+    left: 12%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+
+.dropdown {
+  position: relative;
+}
+
+span {
+font-size: 24px;
+transform: rotate(0deg);
+transition: transform 0.3s ease, color 0.3s ease;
+}
+
+a{
+  font-family: "Handmade Alphabet";
+  font-weight: normal;
+}
+
+/* Style the dropdown button */
+.dropbtn {
+  background-color: var(--tertiary-accentcolor);
+  color: var(--text-color);
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  right: 50px;
+  height: auto;
+  width: 120px;
+  font-size:100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: 0.2s;
+}
+
+
+/* Dropdown content */
+.dropdown-content {
+  display: none;
+  position: fixed;
+  background-color: var(--tertiary-accentcolor);
+  min-width: 200px;
+text-align: right;
+  top: 50px;
+  right: 50px;
+  z-index: 10;
+}
+
+/* Links inside dropdown content */
+.dropdown-content a {
+  color: var(--text-color);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: 0.2s;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: var(--secondary-accentcolor);
+}
+
+/* Show the dropdown content on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change background color of dropdown button on hover */
+.dropdown:hover .dropbtn {
+  background-color: var(--primary-accentcolor);
+    border-bottom-left-radius:0;
+  border-bottom-right-radius: 0;
+}
+
+.dropdown:hover span{
+ color: var(--tertiary-accentcolor);
+    transform: rotate(180deg);
+}
+
+@media screen and (max-width: 600px){
+  .dropdown-content {
+  min-width: 100px;
+  z-index: 10;
+}
+
+.dropbtn {
+  width: 80px;
+}
+
+.logo{
+    padding-top: 1rem;
+    width: 200px;
+    left: 20%;
+  }
+
+  #heroSection {
+  margin: 2rem auto;
+  margin-bottom: 2rem;
+}
+}
+</style>
