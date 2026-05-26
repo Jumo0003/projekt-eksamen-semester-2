@@ -126,6 +126,21 @@ Vi har kommenteret meget i det globale.css, så det er helt tydeligt hvad der er
 I vores individuelle css-filer har vi valgt at overlade det til det medlem som er ansvarlig for siden, hvor meget personen vil kommentere.
 I kode der er svær at forstå (som js eller kompliceret css) har vi været mere omhyggelige med at kommentere, så andre gruppemedlemmer kan forstå det.
 
+## Supabase
+
+Vi har brugt Supabase til at oprette vores database, som vi henter indhold dynamisk fra til vores popover i astro-komponenten: aktivitetPopover.astro. Aktiviteter.astro har et grid af knapper der alle åbner denne popover, som henter indholdet baseret på id-nummer fra tabellen på Supabase. Vores Supabase tabel hedder “Aktiviteter” og består af disse kolonner:
+
+- id
+- created_at
+- billede
+- titel
+- aktivitet
+- udbytte
+- tid
+- start
+
+- [Her kan man se vores objekter:](ywegznlwnoxnmyfuyopi.supabase.co/rest/v1/Aktiviteter?select=*&apikey=sb_publishable_pcCCPaBV-uzhuvxSuJthnA_a--NLf4-)
+
 ## Data og JSON-struktur
 
 Vi henter data fra vores eget API (lavet med SupaBase) i JSON-format.
