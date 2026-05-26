@@ -19,7 +19,7 @@ Sitet består af en enkelt vertikalt scrollbar side, hvor brugeren kan:
 ## Links
 
 - [GitHub repository](https://github.com/Vicky8484/rkf_eksamen)
-- [Netlify Projekt] ()
+- [Netlify Projekt](https://rkfeksamen.netlify.app/)
 - [Figma](https://www.figma.com/design/4MQGvsQbVH4k0lxHUHJnR1/EKSAMEN?node-id=934-28&t=OKhjmX5dcKjWPLYg-1)
 - [Trello](https://trello.com/b/GW7baJ3B/tema-10-eksamen)
 
