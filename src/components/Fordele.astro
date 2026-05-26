@@ -21,17 +21,17 @@ import FaellesskabSlide2 from "../assets/faellesskab_slide2.png";
 
 <div class="highlights">
   <button popovertarget="forskelPopover">
-    <Image class="highlight" src={Forskel} alt="forskel highlight" />
+    <Image class="highlight" src={Forskel} alt="forskel highlight" loading="lazy" />
     <h3>Forskel</h3>
   </button>
 
   <button popovertarget="fremtidPopover">
-    <Image class="highlight" src={Fremtid} alt="fremtid highlight" />
+    <Image class="highlight" src={Fremtid} alt="fremtid highlight" loading="lazy"/>
     <h3>Fremtid</h3>
   </button>
 
   <button popovertarget="faellesskabPopover">
-    <Image class="highlight" src={Faellesskab} alt="Fællesskab highlight" />
+    <Image class="highlight" src={Faellesskab} alt="Fællesskab highlight" loading="lazy"/>
     <h3>Fællesskab</h3>
   </button>
 </div>
@@ -41,29 +41,29 @@ import FaellesskabSlide2 from "../assets/faellesskab_slide2.png";
     <div></div>
 
     <div class="slideindhold">
-      <h3 class="flex"><Image class="profilbillede" src={Profilbillede} alt="Røde Kors Frivillige SoMe profilbillede"/><b>Forskel</b> lige nu</h3>
+      <h3 class="flex"><Image class="profilbillede" src={Profilbillede} alt="Røde Kors Frivillige SoMe profilbillede" loading="lazy"/><b>Forskel</b> lige nu</h3>
 
       <div class="slideshow-container">
         <div class="mySlides">
           <Image
             src={ForskelSlide1}
-            alt="Statistik hvor mange røde kors hjalp i 2025" class="forskelImg"
+            alt="Statistik hvor mange røde kors hjalp i 2025" class="forskelImg" loading="lazy"
           />
         </div>
 
         <div class="mySlides">
           <Image
             src={ForskelSlide2}
-            alt="Fordeling hvordan vi bruger pengene" class="forskelImg"
+            alt="Fordeling hvordan vi bruger pengene" class="forskelImg" loading="lazy"
           />
         </div>
 
         <div class="mySlides">
-          <Image src={ForskelSlide3} alt="Oversigt hvor kommer pengene fra" class="forskelImg" />
+          <Image src={ForskelSlide3} alt="Oversigt hvor kommer pengene fra" class="forskelImg" loading="lazy" />
         </div>
 
         <div class="mySlides">
-          <Image src={ForskelSlide4} alt="Oversigt over udgifter" class="forskelImg" />
+          <Image src={ForskelSlide4} alt="Oversigt over udgifter" class="forskelImg" loading="lazy"/>
         </div>
 
         
@@ -83,15 +83,15 @@ import FaellesskabSlide2 from "../assets/faellesskab_slide2.png";
     <div></div>
 
     <div class="slideindhold">
-      <p class="flex"><Image class="profilbillede" src={Profilbillede} alt="Røde Kors Frivillige SoMe profilbillede"/><b>Fremtid</b> lidt senere</p>
+      <p class="flex"><Image class="profilbillede" src={Profilbillede} alt="Røde Kors Frivillige SoMe profilbillede" loading="lazy"/><b>Fremtid</b> lidt senere</p>
 
       <div class="slideshow-container">
         <div class="mySlides">
-          <Image src={FremtidSlide1} alt="Billede af frivilligt" class="forskelImg"/>
+          <Image src={FremtidSlide1} alt="Billede af frivilligt" class="forskelImg" loading="lazy"/>
         </div>
 
         <div class="mySlides">
-         <Image src={FremtidSlide2} alt="Billede af frivilligt" class="forskelImg" />
+         <Image src={FremtidSlide2} alt="Billede af frivilligt" class="forskelImg" loading="lazy"/>
         </div>
 
         <!-- Next and previous buttons -->
@@ -109,15 +109,15 @@ import FaellesskabSlide2 from "../assets/faellesskab_slide2.png";
   <div popover id="faellesskabPopover">
     <div></div>
     <div class="slideindhold">
-      <p class="flex"><Image class="profilbillede" src={Profilbillede} alt="Røde Kors Frivillige SoMe profilbillede"/><b>Fællesskab</b> altid</p>
+      <p class="flex"><Image class="profilbillede" src={Profilbillede} alt="Røde Kors Frivillige SoMe profilbillede" loading="lazy"/><b>Fællesskab</b> altid</p>
       <div class="slideshow-container">
         
         <div class="mySlides">
-          <Image class="forskelImg" src={FaellesskabSlide1} alt="Billede af fællesskab" />
+          <Image class="forskelImg" src={FaellesskabSlide1} alt="Billede af fællesskab" loading="lazy"/>
         </div>
 
         <div class="mySlides">
-          <Image class="forskelImg" src={FaellesskabSlide2} alt="Billede af fællesskab" />
+          <Image class="forskelImg" src={FaellesskabSlide2} alt="Billede af fællesskab" loading="lazy"/>
         </div>
 
         <!-- Next and previous buttons -->
@@ -134,7 +134,7 @@ import FaellesskabSlide2 from "../assets/faellesskab_slide2.png";
 </div>
 
 
-<script is:inline>
+<script defer is:inline>
 // Store slide indices for each slideshow
 let slideIndices = {};
 
