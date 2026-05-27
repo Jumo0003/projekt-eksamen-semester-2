@@ -16,6 +16,7 @@ img {
 @font-face {
   font-family: "Handmade Alphabet";
   src: url(../assets/handmade-alphabet.regular.otf);
+  font-display: swap;
 }
 
 /*************** CSS variabler *********************/

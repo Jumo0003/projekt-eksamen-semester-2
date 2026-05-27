@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 import logo from "../assets/rkf_logo_header.png";
 ---
 <div id="heroSection">
-<Image class="logo"src={logo} alt="Røde Kors Frivillige Logo" />
+<Image fetch-priority="high" class="logo"src={logo} alt="Røde Kors Frivillige Logo" loading="lazy"/>
 
 <div class="video-wrapper">
   <iframe 

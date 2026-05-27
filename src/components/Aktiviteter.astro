@@ -46,56 +46,56 @@ console.log(data);
         <label for="first"><h2>Røde Kors</h2><span>&#9654;</span></label>
        <div class="content">
                            <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="1">
-                        <Image src={butiksfrivillig} alt="aktivitet" id="1"/>
+                        <Image src={butiksfrivillig} alt="aktivitet" id="1" loading="lazy"/>
                         <div class="boxTitle">
                             <h3>Butiksfrivillig</h3>
                         </div>
                     </button>
 
                     <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="2">
-                        <Image src={parathjælper} alt="aktivitet"/>
+                        <Image src={parathjælper} alt="aktivitet" loading="lazy"/>
                         <div class="boxTitle">
                             <h3>Parathjælper</h3>
                         </div>
                     </button>
 
                     <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="3">
-                        <Image src={kommunikation} alt="aktivitet"/>
+                        <Image src={kommunikation} alt="aktivitet" loading="lazy"/>
                         <div class="boxTitle">
                             <h3>Kommunikation</h3>
                         </div>
                     </button>
 
                     <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="4">
-                        <Image src={sortering} alt="aktivitet"/>
+                        <Image src={sortering} alt="aktivitet" loading="lazy"/>
                         <div class="boxTitle">
                             <h3>Sortering</h3>
                         </div>
                     </button>
 
                     <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="5">
-                        <Image src={ithjalp} alt="aktivitet"/>
+                        <Image src={ithjalp} alt="aktivitet" loading="lazy"/>
                         <div class="boxTitle">
                             <h3>It-hjælp</h3>
                         </div>
                     </button>
 
                     <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="6">
-                        <Image src={samarit} alt="aktivitet"/>
+                        <Image src={samarit} alt="aktivitet" loading="lazy"/>
                         <div class="boxTitle">
                             <h3>Samarit</h3>
                         </div>
                     </button>
 
                     <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="7">
-                        <Image src={indsamler} alt="aktivitet"/>
+                        <Image src={indsamler} alt="aktivitet" loading="lazy"/>
                         <div class="boxTitle">
                             <h3>Indsamler</h3>
                         </div>
                     </button>
 
                     <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="8">
-                        <Image src={besogsven} alt="aktivitet"/>
+                        <Image src={besogsven} alt="aktivitet" loading="lazy"/>
                         <div class="boxTitle">
                             <h3>Besøgsven</h3>
                         </div>
@@ -107,56 +107,56 @@ console.log(data);
         <label for="second"><h2>Ungdommens Røde Kors</h2><span>&#9654;</span></label>
        <div class="content">
      <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="9">
-                        <Image src={lektiehjalper} alt="aktivitet"/>
+                        <Image src={lektiehjalper} alt="aktivitet" loading="lazy"/>
                         <div class="boxTitle">
                             <h3>Lektiehjælper</h3>
                         </div>
                     </button>
 
                     <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="10">
-                        <Image src={klubfrivillig} alt="aktivitet"/>
+                        <Image src={klubfrivillig} alt="aktivitet" loading="lazy"/>
                         <div class="boxTitle">
                             <h3>Klubfrivillig</h3>
                         </div>
                     </button>
 
                      <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="11">
-                        <Image src={ungpalinje} alt="aktivitet"/>
+                        <Image src={ungpalinje} alt="aktivitet" loading="lazy"/>
                         <div class="boxTitle">
                             <h3>Ung På Linje</h3>
                         </div>
                     </button>
 
                       <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="12">
-                        <Image src={mentor} alt="aktivitet"/>
+                        <Image src={mentor} alt="aktivitet" loading="lazy"/>
                         <div class="boxTitle">
                             <h3>Mentor</h3>
                         </div>
                     </button>
 
                      <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="16">
-                        <Image src={butiksfrivillig} alt="aktivitet"/>
+                        <Image src={butiksfrivillig} alt="aktivitet" loading="lazy"/>
                         <div class="boxTitle">
                             <h3>Ungdomsbutik</h3>
                         </div>
                     </button>
 
                      <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="13">
-                        <Image src={hospitalscafe} alt="aktivitet"/>
+                        <Image src={hospitalscafe} alt="aktivitet" loading="lazy"/>
                         <div class="boxTitle">
                             <h3>Hospitalscafe</h3>
                         </div>
                     </button>
 
                      <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="14">
-                        <Image src={lejrleder} alt="aktivitet"/>
+                        <Image src={lejrleder} alt="aktivitet" loading="lazy"/>
                         <div class="boxTitle">
                             <h3>Lejrleder</h3>
                         </div>
                     </button>
 
                     <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="15">
-                        <Image src={asylcenter} alt="aktivitet"/>
+                        <Image src={asylcenter} alt="aktivitet" loading="lazy"/>
                         <div class="boxTitle">
                             <h3>Asylcenter</h3>
                         </div>
@@ -168,9 +168,10 @@ console.log(data);
 <AktivitetPopover aktiviteter={data} />
 </div>
 
-<script type="application/json" id="aktiviteter-data" set:html={JSON.stringify(data)}></script>
 
-<script>
+<script defer type="application/json" id="aktiviteter-data" set:html={JSON.stringify(data)}></script>
+
+<script defer>
   // Define the interface for your activity data
   interface Aktivitet {
     id: number;
