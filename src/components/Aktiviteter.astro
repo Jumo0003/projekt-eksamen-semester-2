@@ -43,7 +43,7 @@ console.log(data);
 <ul id="accordion">
     <li>
         <input type="checkbox" id="first" checked>
-        <label for="first"><h2>Røde Kors</h2><span>&#9654</span></label>
+        <label for="first"><h2>Røde Kors</h2><span>&#9654;</span></label>
        <div class="content">
                            <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="1">
                         <Image src={butiksfrivillig} alt="aktivitet" id="1" loading="lazy"/>
@@ -104,7 +104,7 @@ console.log(data);
     </li>
       <li>
         <input type="checkbox" id="second">
-        <label for="second"><h2>Ungdommens Røde Kors</h2><span>&#9654</span></label>
+        <label for="second"><h2>Ungdommens Røde Kors</h2><span>&#9654;</span></label>
        <div class="content">
      <button popovertarget="aktivitetPopover" class="aktivitet" data-activity-id="9">
                         <Image src={lektiehjalper} alt="aktivitet" loading="lazy"/>
@@ -248,7 +248,7 @@ console.log(data);
     
     // Update the content sections
     const contentElements: NodeListOf<Element> = document.querySelectorAll('#aktivitetPopover .pop-content');
-    if (contentElements.length >= 3) {
+    if (contentElements.length >= 4) {
       const content1: HTMLElement | null = contentElements[0] as HTMLElement;
       const content2: HTMLElement | null = contentElements[1] as HTMLElement;
       const content3: HTMLElement | null = contentElements[2] as HTMLElement;

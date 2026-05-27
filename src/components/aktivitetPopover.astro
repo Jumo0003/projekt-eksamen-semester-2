@@ -27,34 +27,34 @@ const aktivitet = {
  <Image class="bjalkeImg" src={Profilbillede} alt="Røde Kors Frivillige SoMe profilbillede"/>
  <p>rkf.unge • {aktivitet.titel}</p>
     </div>
-<button class="lukBtn" popovertarget="aktivitetPopover" popovertargetaction="hide">&#128937</button>
+<button class="lukBtn" popovertarget="aktivitetPopover" popovertargetaction="hide">&#10005;</button>
 </div>
 <br>
 <div class="indhold">
 <ul id="accordion">
     <li>
         <input type="checkbox" id="pop-first">
-        <label for="pop-first">Hvad skal jeg lave?<span>&#9654</span></label>
+        <label for="pop-first">Hvad skal jeg lave?<span>&#9654;</span></label>
        <div class="content pop-content">
   {aktivitet.aktivitet}
        </div>
     </li>
       <li>
         <input type="checkbox" id="pop-second">
-        <label for="pop-second">Hvad får jeg ud af det?<span>&#9654</span></label>
+        <label for="pop-second">Hvad får jeg ud af det?<span>&#9654;</span></label>
        <div class="content pop-content">
           {aktivitet.udbytte}
        </div>
     </li>
         <li>
         <input type="checkbox" id="pop-third">
-        <label for="pop-third">Hvor lang tid skal jeg bruge?<span>&#9654</span></label>
+        <label for="pop-third">Hvor lang tid skal jeg bruge?<span>&#9654;</span></label>
        <div class="content pop-content">
       {aktivitet.tid}</div>
     </li>
         <li>
         <input type="checkbox" id="pop-fourth">
-        <label for="pop-fourth">Hvordan kommer jeg i gang?<span>&#9654</span></label>
+        <label for="pop-fourth">Hvordan kommer jeg i gang?<span>&#9654;</span></label>
        <div class="content pop-content">
  {aktivitet.start}</div>
     </li>

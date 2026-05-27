@@ -15,6 +15,7 @@ import FremtidSlide1 from "../assets/fremtid_slide1.png";
 import FremtidSlide2 from "../assets/fremtid_slide2.png";
 import FaellesskabSlide1 from "../assets/faellesskab_slide1.png";
 import FaellesskabSlide2 from "../assets/faellesskab_slide2.png";
+
 ---
 <div id="fordeleSection">
 <h1>Hvad får jeg ud af det?</h1>
@@ -75,7 +76,7 @@ import FaellesskabSlide2 from "../assets/faellesskab_slide2.png";
 
     </div>
     <div>
-      <button popovertarget="forskelPopover" class="close-button">&#128937</button>
+      <button popovertarget="forskelPopover" class="close-button">&#10005;</button>
     </div>
   </div>
 
@@ -98,11 +99,10 @@ import FaellesskabSlide2 from "../assets/faellesskab_slide2.png";
         <a class="prev" onclick="plusSlides(-1, this)">&#10094;</a>
         <a class="next" onclick="plusSlides(1, this)">&#10095;</a>
       </div>
-      <br />
 
     </div>
     <div>
-      <button popovertarget="fremtidPopover" class="close-button">&#128937</button>
+      <button popovertarget="fremtidPopover" class="close-button">&#10005;</button>
     </div>
   </div>
 
@@ -124,11 +124,10 @@ import FaellesskabSlide2 from "../assets/faellesskab_slide2.png";
         <a class="prev" onclick="plusSlides(-1, this)">&#10094;</a>
         <a class="next" onclick="plusSlides(1, this)">&#10095;</a>
       </div>
-      <br />
 
     </div>
     <div>
-      <button popovertarget="faellesskabPopover" class="close-button">&#128937</button>
+      <button popovertarget="faellesskabPopover" class="close-button">&#10005;</button>
     </div>
   </div>
 </div>
@@ -214,19 +213,23 @@ function showSlides(n, popoverId) {
   }
 
   #fordeleSection{
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
   }
 
   /* Slideshow container */
   .slideshow-container {
-    max-width: 1000px;
-    position: relative;
     margin: auto;
+      max-width: 1000px;
+  height: calc(100% - 60px); /* Giver slideshowet resten af pladsen minus overskriften */
+  position: relative;
+  margin: auto;
   }
 
   /* Hide the images by default */
   .mySlides {
     display: none;
+      width: 100%;
+  height: 100%;
   }
 
   /* Next & previous buttons */
@@ -269,6 +272,10 @@ h3{
   margin: 0; /* Remove default margin that might cause misalignment */
 }
 
+h3 b, h3 strong {
+  font-weight: bold;
+}
+
   .highlight {
     border-radius: 50%;
     margin-bottom: 1rem;
@@ -290,9 +297,12 @@ width: 100%;
   }
 
 .forskelImg{
-  width: 50%;
   justify-self: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
+  max-height: 70vh; /* Sikrer at billedet ikke bliver højere end selve popover-indholdet */
+  object-fit: contain; 
 }
 
 .profilbillede{
@@ -338,7 +348,7 @@ justify-content: center;
 
   @media screen and (max-width: 600px){
   #fordeleSection{
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
     .highlights {
@@ -365,3 +375,68 @@ justify-content: center;
   }
   }
 </style>
+
+<script is:inline>
+// Store slide indices for each slideshow
+let slideIndices = {};
+
+// Initialize slideshows when popovers open
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize each slideshow
+  initializeSlideshow('forskelPopover');
+  initializeSlideshow('fremtidPopover');
+  initializeSlideshow('faellesskabPopover');
+});
+
+function initializeSlideshow(popoverId) {
+  slideIndices[popoverId] = 1;
+  showSlides(1, popoverId);
+}
+
+// Next/previous controls - updated to work with specific slideshow
+function plusSlides(n, element) {
+  // Find which popover this button belongs to
+  const popover = element.closest('[popover]');
+  const popoverId = popover.id;
+  
+  slideIndices[popoverId] += n;
+  showSlides(slideIndices[popoverId], popoverId);
+}
+
+// Thumbnail image controls
+function currentSlide(n, popoverId) {
+  slideIndices[popoverId] = n;
+  showSlides(slideIndices[popoverId], popoverId);
+}
+
+function showSlides(n, popoverId) {
+  const popover = document.getElementById(popoverId);
+  if (!popover) return;
+  
+  const slides = popover.getElementsByClassName("mySlides");
+  const dots = popover.getElementsByClassName("dot");
+  
+  if (slides.length === 0) return;
+  
+  // Wrap around if needed
+  if (n > slides.length) {
+    slideIndices[popoverId] = 1;
+  }
+  if (n < 1) {
+    slideIndices[popoverId] = slides.length;
+  }
+  
+  // Hide all slides in this specific popover
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  
+  // Show the current slide
+  slides[slideIndices[popoverId] - 1].style.display = "block";
+  
+  // Activate current dot if dots exist
+  if (dots.length > 0) {
+    dots[slideIndices[popoverId] - 1].className += " active";
+  }
+}
+</script>
