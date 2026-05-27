@@ -1,11 +1,11 @@
 <div id="faqSection">
 <h1>Men hvad så hvis?</h1>
-<h3 class="underOverskrift">Stadig i tvivl? Her er svarene på de mest stillede sprøgsmål:</h3>
+<h4 class="underOverskrift">Stadig i tvivl? Her er svarene på de mest stillede spørgsmål</h4>
 
 <ul id="accordion">
 <li>
     <input type="checkbox" id="faq-first">
-    <label for="faq-first"><h3>Hvad får jeg ud af at være frivillig?</h3><span>&#9654</span></label>
+    <label for="faq-first"><h3>Hvad får jeg ud af at være frivillig?</h3><span>&#9654;</span></label>
     <div class="content">
         <p>Der er mange forskellige grunde til, at folk laver frivilligt arbejde. Her er nogen af dem, vi ofte hører:</p>
         <ul class="liste">
@@ -20,35 +20,35 @@
 </li>
 
 <li>  <input type="checkbox" id="faq-second" >
-    <label for="faq-second"><h3>Hvad kræver det af mig at blive frivillig?</h3><span>&#9654</span></label>
+    <label for="faq-second"><h3>Hvad kræver det af mig at blive frivillig?</h3><span>&#9654;</span></label>
     <div class="content">
         <p>Det afhænger både af, hvor meget tid du gerne vil bruge og hvilke aktiviteter, du vælger. Mange aktiviteter er ret fleksible, når det gælder tidsforbrug. Fx afholder vores kvindegrupper møder 1-4 gange om måneden, og du skal kunne deltage min. en gang om måneden – men du kan også deltage fire gange. </p>
     </div></li>
 
 <li><input type="checkbox" id="faq-third">
-    <label for="faq-third"><h3>Kan jeg være frivillig om aften?</h3><span>&#9654</span></label>
+    <label for="faq-third"><h3>Kan jeg være frivillig om aften?</h3><span>&#9654;</span></label>
     <div class="content">
         <p>Ja. Nogle aktiviteter passer bedst til dagtimerne (fx hvis du vil være frivillig i en Røde Kors butik), mens andre er bedst om eftermiddagen/aftenen (fx besøgsven/lektiehjælper). Nogle aktiviteter ligger også i weekender/ferier (fx samarittervagt og ferielejre). </p>
     </div></li>
 
 <li><input type="checkbox" id="faq-fourth">
-    <label for="faq-fourth"><h3>Får jeg nogen uddannelse eller træning?</h3><span>&#9654</span></label>
+    <label for="faq-fourth"><h3>Får jeg nogen uddannelse eller træning?</h3><span>&#9654;</span></label>
     <div class="content">
         <p>De fleste aktiviteter har introduktionsforløb til nye frivillige. Ofte har du også mulighed for at følges med en erfaren frivillig de første par gange. Inden for nogle aktiviteter er det bedst, at du har en særlig uddannelse eller erfaring, inden du starter. Vil du gerne være samarit, skal du eksempelvis på et samaritkursus. Vil du være frivillig i Vågetjenesten, er det en fordel, hvis du erfaring med omsorg for døende mennesker. </p>
     </div></li>
 
 <li><input type="checkbox" id="faq-fifth">
-    <label for="faq-fifth"><h3>Kan jeg prøve det af inden jeg melder mig ind?</h3><span>&#9654</span></label>
+    <label for="faq-fifth"><h3>Kan jeg prøve det af inden jeg melder mig ind?</h3><span>&#9654;</span></label>
     <div class="content">
         <p>Ja, det kan du godt. Når du har fundet noget, du gerne vil hjælpe med, så aftaler du nærmer med den person, der leder aktiviteten i dit lokalområde. Første skridt er at fortælle os, hvad du interesserer dig for, og hvor i Danmark du bor - det kan du gøre på linket herunder, så kontakter vi dig efterfølgende og hjælper dig videre </p>
     </div></li>
 <li><input type="checkbox" id="faq-sixth">
-    <label for="faq-sixth"><h3>Er det muligt at stoppe som frivillig?</h3><span>&#9654</span></label>
+    <label for="faq-sixth"><h3>Er det muligt at stoppe som frivillig?</h3><span>&#9654;</span></label>
     <div class="content">
         <p>Ja. Men hvis du oplever, at du ikke længere har tid eller lyst til at være frivillig, kan det være en god idé at tale med din aktivitetsleder, inden du stopper. Måske kan aktivitetslederen forbedre nogle ting eller kan ændre din rolle til noget, der passer dig bedre.</p>
     </div></li>
 <li><input type="checkbox" id="faq-seventh">
-    <label for="faq-seventh"><h3>Hvordan kommer jeg igang?</h3><span>&#9654</span></label>
+    <label for="faq-seventh"><h3>Hvordan kommer jeg igang?</h3><span>&#9654;</span></label>
     <div class="content">
         <p>Udfyld formularen nedenfor, og meld dig ind som friviillig hos Røde Kors</p>
     </div></li>
@@ -67,6 +67,11 @@ margin-bottom: 5rem;
 
     /* Media query skal ligge efter base-regler hvis den skal overskrive dem */
     @media (max-width: 700px){
+        #faqSection{
+            width: 90%;
+            margin: auto;
+        }
+
         #accordion{
             width: 90%;
         }
