@@ -21,7 +21,6 @@ import asylcenter from "../assets/asylcenter.png";
 
 import asylcenter2 from "../assets/supabase/asylcenter.webp";
 import Profilbillede from "../assets/profilbillede.png";
-import AktivitetPopover from "./aktivitetPopover.astro";
 
 
 const url = `${import.meta.env.PUBLIC_SUPABASE_URL}/rest/v1/Aktiviteter?select=*`;
@@ -169,9 +168,9 @@ console.log(data);
 </div>
 
 
-<script defer type="application/json" id="aktiviteter-data" set:html={JSON.stringify(data)}></script>
+<script type="application/json" id="aktiviteter-data" set:html={JSON.stringify(data)}></script>
 
-<script defer>
+<script>
   // Define the interface for your activity data
   interface Aktivitet {
     id: number;
