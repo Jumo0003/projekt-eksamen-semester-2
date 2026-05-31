@@ -1,4 +1,5 @@
 ---
+// HENT DATA FRA SUPABASE
 const url = `${import.meta.env.PUBLIC_SUPABASE_URL}/rest/v1/Aktiviteter?select=*`;
 const apiKey = import.meta.env.PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
@@ -8,12 +9,25 @@ const options = {
   },
 };
 
-const aktiviteterData = await fetch(url, options)
-  .then((res) => res.json());
+let aktiviteterData = [];
 
-console.log(aktiviteterData);
+try {
+  const response = await fetch(url, options);
+  if (!response.ok) {
+    console.error("Fetch fejl:", response.status, response.statusText);
+  }
+  aktiviteterData = await response.json();
+  console.log("Data fra Supabase:", aktiviteterData);
+} catch (error) {
+  console.error("Fejl ved hentning af data:", error);
+}
+
 ---
+<script type="application/json" id="aktiviteter-data" set:html={JSON.stringify(aktiviteterData)}></script> 
 
+<script>
+  
+</script>
 
 <div id="formSection">
 <h1>Hvad så nu?</h1>
