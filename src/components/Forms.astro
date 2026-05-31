@@ -1,3 +1,20 @@
+---
+const url = `${import.meta.env.PUBLIC_SUPABASE_URL}/rest/v1/Aktiviteter?select=*`;
+const apiKey = import.meta.env.PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+
+const options = {
+  headers: {
+    apikey: apiKey,
+  },
+};
+
+const aktiviteterData = await fetch(url, options)
+  .then((res) => res.json());
+
+console.log(aktiviteterData);
+---
+
+
 <div id="formSection">
 <h1>Hvad så nu?</h1>
 <form>
@@ -12,78 +29,78 @@
     <div class="FrivilligValg">
     <input type="checkbox" id="Butiksfrivillig" name="frivilligValg" value="Butiksfrivillig">
   <label for="Butiksfrivillig">Butiksfrivillig </label> 
-    <a href="#1" class="button">i</a>
+    <a href="#1" class="button"   data-type="Butiksfrivillig">i</a>
       </div>
    
 <div class="FrivilligValg">
   <input type="checkbox" id="Parathjælper" name="frivilligValg" value="Parathjælper">
   <label for="Parathjælper">Parathjælper</label>
-  <a href="#2" class="button">i</a>
+  <a href="#2" class="button"  data-type="Parathjælper">i</a>
 </div>
 
 <div class="FrivilligValg">
   <input type="checkbox" id="Kommunikation" name="frivilligValg" value="Kommunikation">
-  <label for="Kommunikation">Kommunikation</label><a href="#" class="button">i</a> 
+  <label for="Kommunikation">Kommunikation</label><a href="#" class="button"  data-type="Kommunikation">i</a> 
 </div>
 
 <div class="FrivilligValg">
    <input type="checkbox" id="Sortering" name="frivilligValg" value="Sortering">
-  <label for="Sortering">Sortering</label><a href="#" class="button">i</a> 
+  <label for="Sortering">Sortering</label><a href="#" class="button"  data-type="Sortering">i</a> 
 </div>
 
 <div class="FrivilligValg">
     <input type="checkbox" id="IT-hjælper" name="frivilligValg" value="IT-hjælper">
-  <label for="IT-hjælper">IT-hjælper</label><a href="#" class="button">i</a> 
+  <label for="IT-hjælper">IT-hjælper</label><a href="#" class="button" id="IT-hjælper">i</a> 
 </div>
 
 <div class="FrivilligValg">
      <input type="checkbox" id="Mentor" name="frivilligValg" value="Mentor">
-  <label for="Mentor">Mentor</label><a href="#" class="button">i</a> 
+  <label for="Mentor">Mentor</label><a href="#" class="button" id="Mentor">i</a> 
 </div>
 
 <div class="FrivilligValg">
        <input type="checkbox" id="Hospitalscafé" name="frivilligValg" value="Hospitalscafé">
-  <label for="Hospitalscafé">Hospitalscafé</label><a href="#" class="button">i</a> 
+  <label for="Hospitalscafé">Hospitalscafé</label><a href="#" class="button"  data-type="Hospitalscafé">i</a> 
 </div>
 
 <div class="FrivilligValg">
      <input type="checkbox" id="Asylcenter" name="frivilligValg" value="Asylcenter">
-  <label for="Asylcenter">Asylcenter</label><a href="#" class="button">i</a> 
+  <label for="Asylcenter">Asylcenter</label><a href="#" class="button"  data-type="Asylcenter">i</a> 
 </div>
 
 <div class="FrivilligValg">
     <input type="checkbox" id="Samarit" name="frivilligValg" value="Samarit">
-  <label for="Samarit">Samarit</label><a href="#" class="button">i</a> 
+  <label for="Samarit">Samarit</label><a href="#" class="button"  data-type="Samarit">i</a> 
 </div>
 
 <div class="FrivilligValg">
   <input type="checkbox" id="Indsamler" name="frivilligValg" value="Indsamler">
-  <label for="Indsamler">Indsamler</label><a href="#" class="button">i</a> 
+  <label for="Indsamler">Indsamler</label><a href="#" class="button"  data-type="Indsamler">i</a> 
 </div>
 
 <div class="FrivilligValg">
     <input type="checkbox" id="Besøgsven" name="frivilligValg" value="Besøgsven">
-  <label for="Besøgsven">Besøgsven</label><a href="#" class="button">i</a> 
+  <label for="Besøgsven">Besøgsven</label><a href="#" class="button"  data-type="Besøgsven">i</a> 
 </div>
 
 <div class="FrivilligValg">
  <input type="checkbox" id="Lektiehjælper" name="frivilligValg" value="Lektiehjælper">
-  <label for="Lektiehjælper">Lektiehjælper</label><a href="#" class="button">i</a> 
+  <label for="Lektiehjælper">Lektiehjælper</label><a href="#" class="button" data-type="Lektiehjælper">i</a> 
 </div>
 
 <div class="FrivilligValg">
    <input type="checkbox" id="Klubfrivllig" name="frivilligValg" value="Klubfrivllig">
-  <label for="Klubfrivllig">Klubfrivllig</label><a href="#" class="button">i</a> 
+  <label for="Klubfrivllig">Klubfrivllig</label><a href="#" class="button" data-type="Klubfrivllig">i</a> 
 </div>
 
 <div class="FrivilligValg">
     <input type="checkbox" id="Ung på Linje" name="frivilligValg" value="Ung på Linje">
-  <label for="Ung på Linje">Ung på Linje</label><a href="#" class="button">i</a> 
+  <label for="Ung på Linje">Ung på Linje</label><a href="#" class="button"  data-type="Ung på Linje">i</a> 
 </div>
 
 <div class="FrivilligValg">
     <input type="checkbox" id="Lejrleder" name="frivilligValg" value="Lejrleder">
-  <label for="Lejrleder">Lejrleder</label><a href="#" class="button">i</a> </div>
+  <label for="Lejrleder">Lejrleder</label><a href="#" class="button" data-type="Lejrleder">i</a> </div>
     </div>
 
       <label for="fname">Dit fulde navn</label>
@@ -126,7 +143,24 @@ Se Røde Kors’ politik om persondata.  </p>
 </div>
 
 
+/***hover popup */
+
+<div class="popup_content" id="popupContent">
+  <h3 id="popupTitel">Titel kommer her</h3>
+  <p id="popupAktivitet">Aktivitet kommer her</p>
+</div>
+
 <style>
+
+.popup_content{
+  display: none;
+  position: absolute; 
+  background-color: var(--primary-accentcolor);
+  color: var(--alternate-text-color);
+  padding: 10px;
+  border-radius: 5px;
+}
+
 #formSection{
   margin: auto;
   margin-top: 3rem;
@@ -242,6 +276,22 @@ form, #formSection
   grid-template-columns: 1fr;
 }
 }
-
-
 </style>
+
+<script>
+
+
+
+
+/** 
+  const popup_content = document.querySelectorAll('.popup_content') 
+  const button = document.querySelectorAll('.button').forEach;
+ 
+button.addEventListener('mouseover', function(){
+          popup_content.style.display = 'block';
+            });
+              button.addEventListener('mouseout', function () {
+                popup_content.style.display = 'none';
+            });
+*/
+  </script>
