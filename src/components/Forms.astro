@@ -25,9 +25,8 @@ try {
 ---
 <script type="application/json" id="aktiviteter-data" set:html={JSON.stringify(aktiviteterData)}></script> 
 
-<script>
-  
-</script>
+
+
 
 <div id="formSection">
 <h1>Hvad så nu?</h1>
@@ -64,12 +63,12 @@ try {
 
 <div class="FrivilligValg">
     <input type="checkbox" id="IT-hjælper" name="frivilligValg" value="IT-hjælper">
-  <label for="IT-hjælper">IT-hjælper</label><a href="#" class="button" id="IT-hjælper">i</a> 
+  <label for="IT-hjælper">IT-hjælper</label><a href="#" class="button" data-type="IT-hjælper">i</a> 
 </div>
 
 <div class="FrivilligValg">
      <input type="checkbox" id="Mentor" name="frivilligValg" value="Mentor">
-  <label for="Mentor">Mentor</label><a href="#" class="button" id="Mentor">i</a> 
+  <label for="Mentor">Mentor</label><a href="#" class="button" data-type="Mentor">i</a> 
 </div>
 
 <div class="FrivilligValg">
@@ -163,6 +162,28 @@ Se Røde Kors’ politik om persondata.  </p>
   <h3 id="popupTitel">Titel kommer her</h3>
   <p id="popupAktivitet">Aktivitet kommer her</p>
 </div>
+
+<script>
+  const dataElement = document.getElementById("aktiviteter-data")
+  const tekstData = dataElement.textContent
+  const aktiviteter = JSON.parse(tekstData)
+
+
+const buttons = document.querySelectorAll('.button'); 
+buttons.forEach(function(button) {
+  button.addEventListener('mouseover', function() {
+    const type = this.getAttribute('data-type');
+    const found = aktiviteter.find(function(a) {
+      return a.titel === type;
+    });
+    document.getElementById('popupAktivitet').textContent = found.aktivitet;
+    document.querySelector('.popup_content').style.display = 'block';
+  });
+   button.addEventListener('mouseout', function() {
+   document.querySelector('.popup_content').style.display = 'none';
+  });
+});
+  </script>
 
 <style>
 
@@ -292,20 +313,4 @@ form, #formSection
 }
 </style>
 
-<script>
 
-
-
-
-/** 
-  const popup_content = document.querySelectorAll('.popup_content') 
-  const button = document.querySelectorAll('.button').forEach;
- 
-button.addEventListener('mouseover', function(){
-          popup_content.style.display = 'block';
-            });
-              button.addEventListener('mouseout', function () {
-                popup_content.style.display = 'none';
-            });
-*/
-  </script>
